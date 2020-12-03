@@ -3,26 +3,27 @@
 ## inputs:
 ## filename (fd 3)
 ## go (fd 4)
-## contents (fd 5) N/C
 #
 ## outputs:
-## prefix (fd 6)
+## prefix (fd 5)
 #
 
 running=true
 while test "true" = ${running}
 do
-    read -u 4 var_go
+    read -n -u 4 var_go
     if test -n ${var_go}
     then
 	running="false"
     else
-	# hmm, this will need clean-up - if var_go is "", then we will block on reading a filename - that does not represent the correct semantics (we want to read-non-blocking var_go then read-non-blocking var_filename and keep looping)
-	read -u 3 var_filename
+	read -n -u 3 var_filename
     fi
 done
 
 # error check needed here - var_filename should not be "" at this point
-var_prefix=
-echo ${var_filename} >&5
+echo create-file-prefix filename: ${var_filename}
+var_creation_time=`grep '<meta name="CreationTime' ${var_filename}`
+echo create-file-prefix creation_time: ${var_creation_time}
+var_prefix=`echo ${var_creation_time} | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T11:42:29Z">/\1/'`
+echo ${var_prefix} >&5
 

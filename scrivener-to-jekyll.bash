@@ -1,19 +1,8 @@
 rm -f wire1 wire1a wire1b wire1c wire2 wire2a wire2b wire3 wire4
+mkfifo wire1 wire1a wire1b wire1c wire2 wire2a wire2b wire3 wire4
 
-mkfifo wire1
-mkfifo wire 1a
-mkfifo wire 1b
-mkfifo wire 1c
-
-mkfifo wire2
-mkfifo wire2a
-mkfifo wire2b
-
-mkfifo wire3
-mkfifo wire4
-
-wire-splitter wire1 wire1a wire1b wire1c &
-wire-splitter wire2 wire2a wire2b &
+./wire-splitter3 wire1 wire1a wire1b wire1c &
+./wire-splitter2 wire2 wire2a wire2b &
 
 # explicit declarations for ports (mapped to FDs)
 # convention: PORT_<part>_<pin>=fd
@@ -52,19 +41,16 @@ pathB.bash ${PORT_pathB_filename}<wire1b ${PORT_pathB_content}<wire2b ${PORT_pat
 es
 do
 
-    read -u ${PORT_self_filename} var_filename
+    read -n -u ${PORT_self_filename} var_filename
     if test -z "$var_filename"
     then
 	echo ${var_filename} > wire1
     fi
 
-    read -u ${PORT_self_content} var_content
+    read -n -u ${PORT_self_content} var_content
     if test -z "$var_content"
     then
 	echo ${var_content} > wire2
     fi
 
 done
-
-step6.bash
-step7.bash

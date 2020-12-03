@@ -1,0 +1,3 @@
+#!/bin/bash
+read -u 3 var_data
+echo var_data 4>

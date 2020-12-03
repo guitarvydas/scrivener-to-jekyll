@@ -9,12 +9,12 @@
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
 #
 
-rm -f wire1, wire1a, wire1b, wire2, wire2a, wire2b, wire3
-mkfifo wire1 wire1a wire1b wire2 wire2a wire2b wire3
+rm -f wire10, wire10a, wire10b, wire20, wire20a, wire20b, wire30
+mkfifo wire10 wire10a wire10b wire20 wire20a wire20b wire30
 
-./create-file-prefix.bash 3<wire1a 4<wire2a 5>wire3 &
+./create-file-prefix.bash 3<wire10a 4<wire20a 5>wire30 &
 create_file_prefix_pid = $!
-./move-to-posts.bash 3<wire1b 4<wire3 5<wire2b &
+./move-to-posts.bash 3<wire10b 4<wire30 5<wire20b &
 move_to_posts_pid = $!
 
 var_filename=""
@@ -28,11 +28,11 @@ while test "true" = ${running}
 	read -n -u 3 var_temp
 	if test -n ${var_temp}
 	then
-	    echo ${var_temp} >wire1
+	    echo ${var_temp} >wire10
 	fi
     fi
 done
-echo "go" >wire2
+echo "go" >wire20
 wait ${create_file_prefix_pid} ${move_to_posts_pid}      
 exit 0
 
@@ -58,18 +58,18 @@ exit 0
 #
 ## pseudo code with more detail
 #
-# self.input filename --> wire1[3]
-# self.input go --> wire2[3]
+# self.input filename --> wire10[3]
+# self.input go --> wire20[3]
 
-# wire1 --> wire1a, wire1b
-# wire1a --> create-file-prefix.bash[3]
-# wire1b --> move-to-posts.bash[3]
+# wire10 --> wire10a, wire10b
+# wire10a --> create-file-prefix.bash[3]
+# wire10b --> move-to-posts.bash[3]
 
-# wire2 --> wire2a, wire2b
-# wire2a --> create-file-prefix.bash[4]
-# wire2b --> move-to-posts.bash[5]
+# wire20 --> wire20a, wire20b
+# wire20a --> create-file-prefix.bash[4]
+# wire20b --> move-to-posts.bash[5]
 
-# wire3 --> move-to-posts.bash[4]
+# wire30 --> move-to-posts.bash[4]
 
 # initialize filename to ""
 # initialize running to "true"
@@ -81,10 +81,10 @@ exit 0
 #     } else {
 # 	   temp = read fd 4
 # 	   if temp is not empty {
-# 	      send temp to wire1
+# 	      send temp to wire10
 # 	   }
 #     }	      
 # end while
-# send "go" to wire2
+# send "go" to wire20
 
 
