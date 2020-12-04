@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "* $0"
+
 #
 ## inputs:
 ## filename (fd 3)

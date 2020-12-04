@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "* $0"
 
 ## inputs
 ## port 3 --> filename
@@ -7,6 +8,8 @@
 ## outputs
 ## <none> - side effect creates a file in ./_post and, maybe in ./assets/
 #
+rm -f wire_*
+
 wire1=wire_$RANDOM
 wire1a=wire_$RANDOM
 wire1b=wire_$RANDOM
@@ -19,23 +22,54 @@ wire2b=wire_$RANDOM
 wire3=wire_$RANDOM
 wire4=wire_$RANDOM
 
-mkfifo ${wire1} ${wire1a} ${wire1b} ${wire1c}
-mkfifo ${wire2} ${wire2a} ${wire2b}
-mkfifo ${wire3} ${wire4}
+mkfifo ${wire1}
+echo "" >${wire1} &
+read junk <${wire1} &
+
+mkfifo ${wire1a}
+echo "" >${wire1a} &
+read junk <${wire1a} &
+
+mkfifo ${wire1b}
+echo "" >${wire1b} &
+read junk <${wire1b} &
+
+mkfifo ${wire1c}
+echo "" >${wire1c} &
+read junk <${wire1c} &
+
+mkfifo ${wire2}
+echo "" >${wire2} &
+read junk <${wire2} &
+
+mkfifo ${wire2a}
+echo "" >${wire2a} &
+read junk <${wire2a} &
+
+mkfifo ${wire2b}
+echo "" >${wire2b} &
+read junk <${wire2b} &
+
+mkfifo ${wire3}
+echo "" >${wire3} &
+read junk <${wire3} &
+
+mkfifo ${wire4}
+echo "" >${wire4} &
+read junk <${wire4} &
+
 
 # sub components
-./wire-splitter2 3<${wire1} 4>${wire1a} 5>${wire1b} &
-pida=$!
-./wire-splitter2 3<${wire2} 4>${wire2a} 5>${wire2b} &
-pidb=$!
+./wire-splitter3 3<${wire1} 4>${wire1a} 5>${wire1b} 6>${wire1c} &
 
-./isADirectory 3<${wire1c} 4>${wire3} 5>${wire4} &
-pidc=$!
-./pathA 3<${wire1a} 4<${wire2a} 5<${wire3} &
-pidd=$!
-./pathB 3<${wire1a} 4<${wire2a} 5<${wire4} &
-pide=$!
+./isADirectory.bash 3<${wire1c} 4>${wire3} 5>${wire4} &
+set -v
+echo hello >${wire1} &
+read junk <${wire1a} &
+read junk <${wire1b} &
+read junk <${wire1c} &
+read junk <${wire3} &
+read junk <${wire4} &
 
-
-wait ${pida} ${pidb} ${pidc} ${pidd} ${pide}
-
+wait
+echo done
