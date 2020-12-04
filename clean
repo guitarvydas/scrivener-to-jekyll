@@ -1,0 +1,3 @@
+kill -9 `ps | grep scrivener | awk '{ printf "%s ", $1 }'`
+
+rm -rf wire_*
