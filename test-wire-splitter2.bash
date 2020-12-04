@@ -5,7 +5,7 @@ fifo4=fifo_$RANDOM
 fifo5=fifo_$RANDOM
 mkfifo ${fifo3} ${fifo4} ${fifo5}
 
-./wire-splitter2 3<${fifo3} 4>${fifo4} 5>${fifo5}&
+./wire-splitter2.bash 3<${fifo3} 4>${fifo4} 5>${fifo5}&
 
 echo data-on-port-3 >${fifo3}
 
