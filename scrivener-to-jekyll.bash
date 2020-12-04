@@ -15,6 +15,10 @@ wire1a=wire_$RANDOM
 wire1b=wire_$RANDOM
 wire1c=wire_$RANDOM
 
+wire2=wire_$RANDOM
+wire2a=wire_$RANDOM
+wire2b=wire_$RANDOM
+
 wire3=wire_$RANDOM
 wire4=wire_$RANDOM
 
@@ -28,6 +32,7 @@ mkfifo ${wire4}
 
 # sub components
 ./wire-splitter3.bash 3<${wire1} 4>${wire1a} 5>${wire1b} 6>${wire1c} &
+./wire-splitter2.bash 3<${wire2} 4>${wire2a} 5>${wire2b} &
 ./isADirectory.bash 3<${wire1c} 4>${wire4} 5>${wire3} &
 ./pathA.bash 3<${wire1a} 5<${wire3} &
 ./pathAa.bash 3<${wire1b} 5<${wire4} &
