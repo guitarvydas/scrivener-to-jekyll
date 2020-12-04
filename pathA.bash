@@ -26,7 +26,7 @@ mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3}
 ./wire-splitter2 3<${wire2} 4>${wire2a} 5>${wire2b} &
 
 read -u 3 filename
-echo test1.html > ${wire1} &
+echo ${filename} > ${wire1} &
 
 read -u 5 go
 echo ${go} > ${wire2} &
