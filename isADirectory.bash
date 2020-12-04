@@ -8,8 +8,8 @@
 read -u 3 PORT_filename
 if test -d ${PORT_filename}
 then
-   echo directory >&4
+   echo directory >/dev/fd/4
 else
-   echo notDirectory >&5
+   echo notDirectory >/dev/fd/5
 fi
 

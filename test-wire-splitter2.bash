@@ -11,13 +11,11 @@ pid=$!
 echo data-on-port-3 >${fifo3}
 
 # grrr, each fifo must have 2 active ends, or blocking will occur
-#  (the fifos are buffered, but only after both ends have been established)
+#  (the fifos are buffered, but *only after* both ends have been established)
 # hence, above call to wire-splitter2 will block until something attaches to fifo5
 # hence, we must & the port 4 line
 echo "port 4:" /`cat - <${fifo4}`/ &
 echo "port 5:" /`cat - <${fifo5}`/
 
 wait $pid
-
-echo "< test-wire-splitter2 done"
 
