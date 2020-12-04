@@ -9,6 +9,9 @@
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
 #
 
+echo pathA
+set -v
+
 rm -f wire10, wire10a, wire10b, wire20, wire20a, wire20b, wire30
 mkfifo wire10 wire10a wire10b wire20 wire20a wire20b wire30
 
@@ -20,12 +23,12 @@ move_to_posts_pid = $!
 var_filename=""
 running="true"
 while test "true" = ${running}
-    read -n -u 4 var_go
+    read -n 512-u 4 var_go
     if test -n ${var_go}
     then
 	running="false"
     else
-	read -n -u 3 var_temp
+	read -n 512 -u 3 var_temp
 	if test -n ${var_temp}
 	then
 	    echo ${var_temp} >wire10
