@@ -9,14 +9,11 @@ wire5=wire_$RANDOM
 mkfifo ${wire3} ${wire4} ${wire5}
 
 ./move-to-posts.bash 3<${wire3} 4<${wire4} 5<${wire5} &
-pid=$!
 
 echo test1.html >${wire3} &
-pid3=$!
 echo 2020-12-03 >${wire4} &
-pid4=$!
 echo true >${wire5} &
-pid5=$!
 
-wait ${pid} ${pid3} ${pid4} ${pid5}
+wait
+
 

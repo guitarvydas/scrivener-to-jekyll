@@ -6,7 +6,6 @@ fifo5=fifo_$RANDOM
 mkfifo ${fifo3} ${fifo4} ${fifo5}
 
 ./wire-splitter2 3<${fifo3} 4>${fifo4} 5>${fifo5}&
-pid=$!
 
 echo data-on-port-3 >${fifo3}
 
@@ -17,5 +16,5 @@ echo data-on-port-3 >${fifo3}
 echo "port 4:" /`cat - <${fifo4}`/ &
 echo "port 5:" /`cat - <${fifo5}`/
 
-wait $pid
+wait
 
