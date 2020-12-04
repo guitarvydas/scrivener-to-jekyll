@@ -9,21 +9,33 @@
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
 #
 
-echo pathA
-set -v
+wire1=wire_$RANDOM
+wire1a=wire_$RANDOM
+wire1b=wire_$RANDOM
+wire2=wire_$RANDOM
+wire2a=wire_$RANDOM
+wire2b=wire_$RANDOM
+wire3=wire_$RANDOM
+mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3}
 
-rm -f wire10, wire10a, wire10b, wire20, wire20a, wire20b, wire30
-mkfifo wire10 wire10a wire10b wire20 wire20a wire20b wire30
+./create-file-prefix.bash 3<${wire1a} 4<${wire2a} 5>${wire3} &
+pid1 = $!
+./move-to-posts.bash 3<${wire1b} 4<${wire3} 5<${wire2b} &
+pid2 = $!
+./wire-splitter 3<${wire1} 4>${wire1a} 5>${wire1b}&
+pid3 = $!
+./wire-splitter 3<${wire2} 4>${wire2a} 5>${wire2b}&
+pid4 = $!
 
-./create-file-prefix.bash 3<wire10a 4<wire20a 5>wire30 &
-create_file_prefix_pid = $!
-./move-to-posts.bash 3<wire10b 4<wire30 5<wire20b &
-move_to_posts_pid = $!
+read -u 3 var_filename
+read -u 4 var_go
+
+
 
 var_filename=""
 running="true"
 while test "true" = ${running}
-    read -n 512-u 4 var_go
+    read -n 512 -u 4 var_go
     if test -n ${var_go}
     then
 	running="false"
@@ -31,11 +43,11 @@ while test "true" = ${running}
 	read -n 512 -u 3 var_temp
 	if test -n ${var_temp}
 	then
-	    echo ${var_temp} >wire10
+	    echo ${var_temp} >wire1
 	fi
     fi
 done
-echo "go" >wire20
+echo "go" >wire2
 wait ${create_file_prefix_pid} ${move_to_posts_pid}      
 exit 0
 
