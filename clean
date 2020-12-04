@@ -1,7 +1,5 @@
 #~/bin/bash
-
 set -v
-
 kill -9 `ps | grep scrivener | awk '{ printf "%s ", $1 }'`
-
 rm -rf wire_*
+rm -rf _posts/*
