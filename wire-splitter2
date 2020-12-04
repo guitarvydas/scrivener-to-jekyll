@@ -1,5 +1,4 @@
 #!/bin/bash
-read data <$1
-echo ${data} >$2
-echo ${data} >$3
-
+read data </dev/fd/3
+echo ${data} >/dev/fd/5
+echo ${data} >/dev/fd/4
