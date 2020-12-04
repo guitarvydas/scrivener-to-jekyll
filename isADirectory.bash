@@ -6,11 +6,17 @@
 # output_port[4] === output_port["yes"]
 # output_port[5] === output_port["no"]
 echo "* $0"
-read -u 3 filename
+# read -u 3 filename
+read filename </dev/fd/3
 if test -d ${filename}
 then
-   echo directory >/dev/fd/4
+   echo "*** directory /${filename}/ $0"
+   echo go >/dev/fd/4
+   echo die >/dev/fd/5
 else
-   echo notDirectory >/dev/fd/5
+   echo "*** not directory /${filename}/ $0"
+   echo go >/dev/fd/5
+   echo die >/dev/fd/4
 fi
+echo "** done $0"
 
