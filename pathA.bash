@@ -2,8 +2,8 @@
 #
 ## inputs:
 ## filename (fd 3)
-## go (fd 4)
-## content (fd 5) N/C
+## content (fd 4) N/C
+## go (fd 5)
 #
 ## outputs:
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
@@ -21,23 +21,17 @@ wire3=wire_$RANDOM
 mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3}
 
 ./create-file-prefix.bash 3<${wire1a} 4<${wire2a} 5>${wire3} &
-pid1=$!
 ./move-to-posts.bash 3<${wire1b} 4<${wire3} 5<${wire2b} &
-pid2=$!
 ./wire-splitter2 3<${wire1} 4>${wire1a} 5>${wire1b} &
-pid3=$!
 ./wire-splitter2 3<${wire2} 4>${wire2a} 5>${wire2b} &
-pid4=$!
 
 read -u 3 filename
 echo test1.html > ${wire1} &
-pide=$!
 
-read -u 4 go
+read -u 5 go
 echo ${go} > ${wire2} &
-pidf=$!
 
-wait ${pid1} ${pid2} ${pid3} ${pid4} ${pide} ${pidf}
+wait
 
 
 
@@ -89,5 +83,4 @@ wait ${pid1} ${pid2} ${pid3} ${pid4} ${pide} ${pidf}
 #     }	      
 # end while
 # send "go" to wire20
-
 

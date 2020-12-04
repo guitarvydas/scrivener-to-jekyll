@@ -11,8 +11,8 @@ mkfifo ${wire3} ${wire4} ${wire5}
 ./pathA.bash 3<${wire3} 4<${wire4} 5<${wire5} &
 
 echo test1.html >${wire3} &
-echo true >${wire4} &
-echo dont-care >${wire5} &
+echo true >${wire5} &
+echo dont-care >${wire4} &
 
 wait
 
