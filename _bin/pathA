@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "* $0"
+./makenew
+./debug-entry $0
 
 #
 ## inputs:
@@ -22,10 +23,10 @@ wire2b=wire_$RANDOM
 wire3=wire_$RANDOM
 mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3}
 
-./create-file-prefix.bash 3<${wire1a} 4<${wire2a} 5>${wire3} &
-./move-to-posts.bash 3<${wire1b} 4<${wire3} 5<${wire2b} &
-./wire-splitter2.bash 3<${wire1} 4>${wire1a} 5>${wire1b} &
-./wire-splitter2.bash 3<${wire2} 4>${wire2a} 5>${wire2b} &
+./create-file-prefix 3<${wire1a} 4<${wire2a} 5>${wire3} &
+./move-to-posts 3<${wire1b} 4<${wire3} 5<${wire2b} &
+./wire-splitter2 3<${wire1} 4>${wire1a} 5>${wire1b} &
+./wire-splitter2 3<${wire2} 4>${wire2a} 5>${wire2b} &
 
 read -u 3 filename
 echo ${filename} > ${wire1} &
@@ -36,6 +37,8 @@ then
     echo ${go} > ${wire2}
 fi    
 
+./debug-exit $0
+exit
 
 
 ## pseudo code
@@ -62,14 +65,14 @@ fi
 # self.input go --> wire20[3]
 
 # wire10 --> wire10a, wire10b
-# wire10a --> create-file-prefix.bash[3]
-# wire10b --> move-to-posts.bash[3]
+# wire10a --> create-file-prefix[3]
+# wire10b --> move-to-posts[3]
 
 # wire20 --> wire20a, wire20b
-# wire20a --> create-file-prefix.bash[4]
-# wire20b --> move-to-posts.bash[5]
+# wire20a --> create-file-prefix[4]
+# wire20b --> move-to-posts[5]
 
-# wire30 --> move-to-posts.bash[4]
+# wire30 --> move-to-posts[4]
 
 # initialize filename to ""
 # initialize running to "true"
@@ -86,5 +89,3 @@ fi
 #     }	      
 # end while
 # send "go" to wire20
-
-echo "** done $0"

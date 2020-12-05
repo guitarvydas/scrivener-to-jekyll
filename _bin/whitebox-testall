@@ -1,0 +1,9 @@
+#!/bin/bash
+set -v
+./clean
+./whitebox-test-move-to-posts
+./whitebox-test-create-file-prefix
+./whitebox-test-isADirectory
+./whitebox-test-pathA
+./whitebox-test-wire-splitter2
+./whitebox-test-scrivener-to-jekyll
