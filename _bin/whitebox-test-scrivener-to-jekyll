@@ -1,0 +1,14 @@
+#!/bin/bash
+./debug-entry $0
+./makenew
+
+mkfifo filename
+mkfifo go
+target=../_new/test.html
+
+./scrivener-to-jekyll 3<filename &
+
+echo ${target} > filename &
+echo "go" > go &
+
+./debug-exit $0

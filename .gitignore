@@ -1,4 +1,5 @@
 *~
 junk*
-
+_posts/*
+_new/*
 .DS_Store

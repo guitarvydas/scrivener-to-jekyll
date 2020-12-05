@@ -1,0 +1,7 @@
+#!/bin/bash
+kill -9 `ps | grep bash | grep -v 'whitebox' | grep -v 'clean' | awk '{ printf "%s ", $1 }'`
+rm -f wire_*
+rm -f ../_posts/*
+rm -f ../_new/*
+rm -f filename
+rm -f go

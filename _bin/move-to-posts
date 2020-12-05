@@ -8,10 +8,12 @@
 ## outputs:
 ## <none> - causes side-effect of mv'ing prefix/filename to ./_posts/
 #
-
+./debug-entry $0
 read -u 3 var_filename
 read -u 4 var_prefix
 read -u 5 var_go
-mv ${var_filename} _posts/${var_prefix}-${var_filename}
+basename=`basename ${var_filename}`
+mv ${var_filename} ../_posts/${var_prefix}-${basename}
+./debug-exit $0
 
 
