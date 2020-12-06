@@ -7,7 +7,7 @@ wire2=wire_$RANDOM
 wire3=wire_$RANDOM
 mkfifo ${wire1} ${wire2} ${wire3}
 
-find ../_new -iname "*" | while read targetMaybeWithBlanks
+find ../_new -mindepth 1 -maxdepth 1 -iname '*' | while read targetMaybeWithBlanks
 do
     if [ "../_new" == "${targetMaybeWithBlanks}" ]
     then
