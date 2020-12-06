@@ -14,8 +14,8 @@ read prefix </dev/fd/4
 read go </dev/fd/5
 if [ "${go}" == "go" ]
 then
-    basename=`basename "${filename}"`
-    mv "${filename}" "../_posts/${prefix}-${basename}"
+    basename=`basename ${filename}`
+    mv "${filename}" ../_posts/"${prefix}-${basename}"
 fi
 ./debug-exit "[$1] $0"
 

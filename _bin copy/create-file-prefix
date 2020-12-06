@@ -12,15 +12,15 @@
 read filename </dev/fd/3
 read go </dev/fd/4
 
-if [ "go" == "${go}" ]
+if [ "go" == ${go} ]
 then
     # error check needed here - filename should not be "" at this point
-    creation_time=`grep "<meta name=\"CreationTime\"" "${filename}"`
+    creation_time=`grep "<meta name=\"CreationTime\" ${filename}"`
     if [ -z "${creation_time}" ]
     then
 	prefix=`date "+%Y-%m-%d"`
     else	
-	prefix=`echo "${creation_time}" | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T..:..:..Z">/\1/'`
+	prefix=`echo ${creation_time} | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T..:..:..Z">/\1/'`
     fi
     echo "${prefix}" >/dev/fd/5
 else

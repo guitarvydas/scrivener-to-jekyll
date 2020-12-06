@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Untitled</title>
+  <meta name="Author" content="Paul Tarvydas">
+  <meta name="CreationTime" content="2020-12-06T08:48:32Z">
+  <meta name="ModificationTime" content="2020-12-06T08:48:32Z">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.6">
+  <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 18.0px; font: 13.0px Palatino}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-indent: 18.0px; font: 13.0px Palatino; min-height: 18.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 36.0px; font: 11.0px Menlo}
+    p.p7 {margin: 0.0px 0.0px 0.0px 36.0px; font: 11.0px Menlo; min-height: 13.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Palatino}
+    li.li5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Palatino; min-height: 18.0px}
+    span.s1 {font: 13.0px Palatino}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<div style="width: 600px; margin: 0 auto">
+
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Out of Date Biases</b></h2>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Parameter Lists</b></h2>
+<p class="p2">Parameters are pushed onto a heterogenous<a id="fnlink1"></a><a href="#fn1"><sup>[1]</sup></a> stack.</p>
+<p class="p3"><br></p>
+<p class="p2">The idea of parameter lists was borne out of:</p>
+<p class="p3"><br></p>
+<ul class="ul1">
+  <li class="li4">concern for memory conservation</li>
+  <li class="li4">mathematical notation (which came from pen-and-paper-only thinking)</li>
+  <li class="li4">strictly textual notations<span class="Apple-converted-space"> </span></li>
+  <li class="li4">"everything mus be synchronous" thinking.</li>
+</ul>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Exceptions</b></h2>
+<p class="p2">The idea of exceptions was borne out of:</p>
+<p class="p3"><br></p>
+<ul class="ul1">
+  <li class="li4">strictly textual notations<span class="Apple-converted-space"> </span></li>
+  <li class="li4">synchronous-only thinking</li>
+  <li class="li4">the idea of parameter lists (which cause accidental complexity in the design of exception syntax)</li>
+  <li class="li5"><br></li>
+</ul>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Return Values</b></h2>
+<p class="p2">Return values are placed on the stack.</p>
+<p class="p3"><br></p>
+<p class="p2">The idea of return values was borne out of:</p>
+<p class="p3"><br></p>
+<ul class="ul1">
+  <li class="li4">concern for memory conservation</li>
+  <li class="li4">mathematical notation</li>
+  <li class="li4">strictly textual notations<span class="Apple-converted-space"> </span></li>
+  <li class="li4">"everything must be synchronous" thinking</li>
+  <li class="li4">the idea of parameter lists (which cause accidental complexity in the design of return syntax).</li>
+  <li class="li5"><br></li>
+</ul>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Extra Work</b></h2>
+<p class="p2">The compiler must do extra work:</p>
+<p class="p3"><br></p>
+<ul class="ul1">
+  <li class="li4">to determine type safety</li>
+  <li class="li4">to determine alignment.</li>
+  <li class="li5"><br></li>
+</ul>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>A Stack is a (Degenerate) Collection</b></h2>
+<p class="p2">A stack is an optimization of list. <span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p2">A list is a collection.</p>
+<p class="p3"><br></p>
+<p class="p2">The concept of <i>stack</i> conflates several issues:</p>
+<ul class="ul1">
+  <li class="li4">scoping</li>
+  <li class="li4">optimization.</li>
+</ul>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Two Stacks for Every Type</b></h2>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Separate Collections</b></h2>
+<p class="p2">Every <i>type</i> might be stored in a separate collection.<span class="Apple-converted-space"> </span></p>
+<p class="p3"><br></p>
+<p class="p2">The <i>parameters</i> to a routine might be a collection of typed collections.</p>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Type Checking</b></h2>
+<p class="p2">Assertion: if something is in a typed collection, the it has the correct type.</p>
+<p class="p3"><br></p>
+<p class="p2">Type check is done at "push" time (where "push" means to add the item to its collection).</p>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Type Name Clashes</b></h2>
+<p class="p2">What can we do if two parameters have the same type?</p>
+<p class="p3"><br></p>
+<p class="p2">One solution - allow type synonyms.</p>
+<p class="p3"><br></p>
+<p class="p2">Each parameter gets a unique name, but the name is synonymed to be of a given type.</p>
+<p class="p3"><br></p>
+<p class="p2">E.G.</p>
+<p class="p3"><br></p>
+<p class="p6">fn(a : int, b : int)</p>
+<p class="p3"><br></p>
+<p class="p2">becomes</p>
+<p class="p3"><br></p>
+<p class="p6">fn(a,b)</p>
+<p class="p6">a = int</p>
+<p class="p6">b = int</p>
+<p class="p7"><br></p>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>Type Stack Operations</b></h2>
+<p class="p2">TBD</p>
+<p class="p3"><br></p>
+<p class="p2">I have implemented a version of the above ideas and will document the operations (about 5) that I use (push-and-check-type, pop, list-add, etc.)</p>
+<h2 style="margin: 24.0px 0.0px 12.0px 0.0px; font: 20.0px Helvetica"><b>PT Pascal and S/SL</b></h2>
+<p class="p2">The PT Pascal compiler, written in the language S/SL, used stacks for scoping and type checking.<span class="Apple-converted-space">  </span>The PT Pascal source code and S/SL source code can be found at <a href="https://research.cs.queensu.ca/home/cordy/pub/downloads/ssl/">https://research.cs.queensu.ca/home/cordy/pub/downloads/ssl/</a>.</p>
+<p class="p3"><br></p>
+<p class="p2">A version of S/SL with input and output parameters was documented in a thesis - I can't find my copy of the thesis nor can I remember the author's name.</p>
+<hr>
+<p class="p8"><a id="fn1"></a><a href="#fnlink1"><span class="s1">[1]</span></a><span class="s1"> </span>Parameters of all types share the same stack.</p>
+</div>
+</body>
+</html>

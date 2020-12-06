@@ -1,0 +1,6 @@
+#!/bin/bash
+# test runner
+echo 1 >debug.txt
+./clean
+./makenew
+./run

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "* $0"
+./debug-entry "$0 $1"
 
 #
 ## inputs:
@@ -11,8 +11,6 @@ echo "* $0"
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
 #
 
-rm -f _posts/*
-
 wire1=wire_$RANDOM
 wire1a=wire_$RANDOM
 wire1b=wire_$RANDOM
@@ -20,22 +18,26 @@ wire2=wire_$RANDOM
 wire2a=wire_$RANDOM
 wire2b=wire_$RANDOM
 wire3=wire_$RANDOM
-mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3}
+wire4=wire_$RANDOM
+mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3} ${wire4}
 
-./create-file-prefix 3<${wire1a} 4<${wire2a} 5>${wire3} &
-./move-to-posts 3<${wire1b} 4<${wire3} 5<${wire2b} &
-./wire-splitter2 3<${wire1} 4>${wire1a} 5>${wire1b} &
-./wire-splitter2 3<${wire2} 4>${wire2a} 5>${wire2b} &
+./wire-splitter2 "$0 $1" 3<${wire1} 4>${wire1a} 5>${wire1b} &
+./wire-splitter2 "$0 $1" 3<${wire2} 4>${wire2a} 5>${wire2b} &
+./create-file-prefix "$0 $1" 3<${wire1a} 4<${wire2a} 5>${wire3} &
+./move-to-posts "$0 $1" 3<${wire1b} 4<${wire3} 5<${wire2b} &
 
-read -u 3 filename
-echo ${filename} > ${wire1} &
+read filename </dev/fd/3
+echo "${filename}" > ${wire1} &
 
-read -u 5 go
-if [ ${go} == "go" ]
-then
-    echo ${go} > ${wire2}
-fi    
+read content </dev/fd/4
+echo "${content}" > ${wire4} &
+./nc 3<${wire4} &
 
+read go </dev/fd/5
+echo "${go}" > ${wire2} &
+
+./debug-exit "$0 $1"
+wait
 
 
 ## pseudo code
@@ -86,5 +88,3 @@ fi
 #     }	      
 # end while
 # send "go" to wire20
-
-echo "** done $0"
