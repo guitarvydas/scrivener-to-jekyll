@@ -1,20 +1,15 @@
 #!/bin/bash
 filename=pin_$RANDOM
 content=pin_$RANDOM
-find ../_new -iname "*" | while read targetMaybeWithBlanks
+find ../_new -mindepth 1 -maxdepth 1 -iname '*' | while read targetMaybeWithBlanks
 do
-    if [ "../_new" == "${targetMaybeWithBlanks}" ]
-    then
-	echo "skipping [\"${targetMaybeWithBlanks}\"]"
-    else
-	target=`echo "${targetMaybeWithBlanks}" | sed -e 's/ /\\ /g'`
-	echo "creating post from [${target}]"
-	rm -f pin_*
-	mkfifo ${filename}
-	mkfifo ${content}
-	./scrivener-to-jekyll 3<"${filename}" 4<"${content}" &
-	echo "${target}" >"${filename}" &
-	echo "don't care" >"${content}" &
-    fi
+    target=`echo "${targetMaybeWithBlanks}" | sed -e 's/ /\\ /g'`
+    echo "creating post from [${target}]"
+    rm -f pin_*
+    mkfifo ${filename}
+    mkfifo ${content}
+    ./scrivener-to-jekyll 3<"${filename}" 4<"${content}" &
+    echo "${target}" >"${filename}" &
+    echo "don't care" >"${content}" &
 done
 
