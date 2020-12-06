@@ -1,7 +1,5 @@
 #!/bin/bash
 
-./makenew
-
 wire1=wire_$RANDOM
 wire2=wire_$RANDOM
 wire3=wire_$RANDOM
