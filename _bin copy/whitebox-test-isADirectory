@@ -1,0 +1,14 @@
+#!/bin/bash
+
+./makenew
+
+wire1=wire_$RANDOM
+wire2=wire_$RANDOM
+wire3=wire_$RANDOM
+mkfifo ${wire1} ${wire2} ${wire3}
+
+./isADirectory 3<${wire1} 4>${wire2} 5>${wire3} &
+echo "port 4: " `cat <${wire2}` &
+echo "port 5: " `cat <${wire3}` &
+echo ../_new/test.html >${wire1}
+

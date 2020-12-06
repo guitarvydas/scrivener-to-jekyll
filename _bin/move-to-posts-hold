@@ -12,10 +12,14 @@
 read filename </dev/fd/3
 read prefix </dev/fd/4
 read go </dev/fd/5
-if [ "${go}" == "go" ]
+if [ ${go} == "go" ]
 then
-    basename=`basename "${filename}"`
-    mv "${filename}" "../_posts/${prefix}-${basename}"
+    basename=`basename ${filename}`
+    echo "[[$1] $0] moving due to /${go}/ prefix=/${prefix}/"
+    echo "mv ${filename} ../_posts/${prefix}-${basename}"
+    mv ${filename} ../_posts/${prefix}-${basename}
+else
+    echo "[[$1] $0] not moving due to /${go}/"
 fi
 ./debug-exit "[$1] $0"
 
