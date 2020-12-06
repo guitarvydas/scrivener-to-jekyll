@@ -12,8 +12,8 @@ then
    echo go >/dev/fd/4
    echo die >/dev/fd/5
 else
-   echo go >/dev/fd/5
    echo die >/dev/fd/4
+   echo go >/dev/fd/5
 fi
 ./debug-exit $p
 
