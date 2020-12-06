@@ -15,10 +15,11 @@ do
 	echo "skipping [\"${targetMaybeWithBlanks}\"]"
     else
 	./isADirectory 3<${wire1} 4>${wire2} 5>${wire3} &
-	echo "port 4: " `cat <${wire2}` &
-	echo "port 5: " `cat <${wire3}` &
+	echo "port 4 (directory): " `cat <${wire2}` &
+	echo "port 5 (not directory): " `cat <${wire3}` &
 	echo "testing isADirectory with \"${targetMaybeWithBlanks}\""
 	echo "${targetMaybeWithBlanks}" >${wire1}
+	wait
     fi
 done
 
