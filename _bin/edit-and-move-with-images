@@ -22,7 +22,7 @@ if [ "${go}" == "go" ]
 then
     base=`basename "${filename}"`
     # edit to new file and move it to _posts
-    sed -e "s@<img src=\"Images@<img src=\"${prefix}-Images@g" <"${filename}/${base}" >"../_posts/${prefix}-${base}"
+    sed -e "s@<img src=\"Images@<img src=\"$/assets/{prefix}-Images@g" <"${filename}/${base}" >"../_posts/${prefix}-${base}"
     # move Images folder to ../assets/prefix-Images
     mv "${filename}/Images" "../assets/${prefix}-Images"
 fi
