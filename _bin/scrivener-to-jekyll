@@ -36,7 +36,7 @@ mkfifo ${wire4}
 ./wire-splitter3 "$0" 3<${wire1} 4>${wire1a} 5>${wire1b} 6>${wire1c} &
 ./wire-splitter2 "$0" 3<${wire2} 4>${wire2a} 5>${wire2b} &
 ./isADirectory "$0" 3<${wire1c} 4>${wire3} 5>${wire4} &
-./pathA "dir $0" 3<${wire1a} 4<${wire2a} 5<${wire3} &
+./pathB "dir $0" 3<${wire1a} 4<${wire2a} 5<${wire3} &
 ./pathA "file $0" 3<${wire1b} 4<${wire2b} 5<${wire4} &
 
 read filename </dev/fd/3

@@ -12,5 +12,5 @@ set -v
 ./whitebox-test-pathA
 ./clean
 ./whitebox-test-pathA-fail
-# ./clean
-# ./whitebox-test-scrivener-to-jekyll
+./clean
+./whitebox-test-scrivener-to-jekyll

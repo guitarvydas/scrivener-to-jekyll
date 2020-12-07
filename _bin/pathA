@@ -34,7 +34,6 @@ echo "${content}" > ${wire4} &
 ./nc 3<${wire4} &
 
 read pin_go </dev/fd/5
-echo "pA ${pin_go}"
 echo "${pin_go}" > ${wire2} &
 
 ./debug-exit "[$1] $0"

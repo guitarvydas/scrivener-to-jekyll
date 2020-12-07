@@ -14,11 +14,9 @@ then
 else
     if test -f "${filename}"
     then
-	echo "isa 1 \"${filename}\""
 	echo die >/dev/fd/4
 	echo go >/dev/fd/5
     else
-	echo "isa 2"
 	echo die >/dev/fd/4
 	echo die >/dev/fd/5
     fi
