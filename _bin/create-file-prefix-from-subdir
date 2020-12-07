@@ -25,7 +25,7 @@ then
 	fullprefix=`echo "${creation_time}" | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T\(..\):\(..\):\(..\)Z">/\1-\2-\3-\4/'`
     fi
     echo "${prefix}" >/dev/fd/5 &
-    echo "${fullprefix}" >/dev/fd/6 &
+#    echo "${fullprefix}" >/dev/fd/6 &
 else
     # this is required because bash does not actually support concurrency 
     # bash imposes a rendezvous regimen on named pipes and blocks processes until all pipes have 2 ends
@@ -35,7 +35,7 @@ else
     # (rendezvous can be implemented using an ACK/NAK protocol)
     # (at the least, this pertains to bash under MacOSX Catalina, probably elsewhere, too)
     echo "???" >/dev/fd/5 &
-    echo "???" >/dev/fd/6 &
+#    echo "???" >/dev/fd/6 &
 fi
 ./debug-exit "[$1] $0"
 
