@@ -1,5 +1,5 @@
 #!/bin/bash
-debug=`cat debug.txt`
+debug=`cat ../debug.txt`
 if [ "1" == ${debug} ]
 then
     echo "* $1"
