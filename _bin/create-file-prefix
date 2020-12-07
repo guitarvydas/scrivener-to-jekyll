@@ -5,7 +5,7 @@
 ## go (fd 4)
 #
 ## outputs:
-## prefix (fd 5)
+## prefix (fd 5) (YYYY-MM-DD)
 #
 ./debug-entry "[$1] $0"
 
