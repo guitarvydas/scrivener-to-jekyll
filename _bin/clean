@@ -2,7 +2,7 @@
 kill -9 `ps | grep bash | grep -v 'whitebox' | grep -v 'clean' | grep -v 'trun' | awk '{ printf "%s ", $1 }'`
 rm -f wire_*
 rm -f pin_*
-if [ "1" == `cat copy.txt` ]
+if [ "1" == `cat ../copy.txt` ]
 then
     rm -rf ../_posts/*
     ./makenew
