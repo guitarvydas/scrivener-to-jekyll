@@ -5,7 +5,8 @@
 ## go (fd 4)
 #
 ## outputs:
-## prefix (fd 5)
+## prefix (fd 5) (YYYY-MM-DD)
+## fullprefix (fd 6) (YYYY-MM-DD-HH-MM-SS)
 #
 ./debug-entry "[$1] $0"
 
@@ -21,10 +22,20 @@ then
     if [ ! -z "${creation_time}" ]
     then
 	prefix=`echo "${creation_time}" | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T..:..:..Z">/\1/'`
+	fullprefix=`echo "${creation_time}" | sed -e 's/<meta name="CreationTime" content="\(2020-..-..\)T\(..\):\(..\):\(..\)Z">/\1-\2-\3-\4/'`
     fi
-    echo "${prefix}" >/dev/fd/5
+    echo "${prefix}" >/dev/fd/5 &
+    echo "${fullprefix}" >/dev/fd/6 &
 else
-    echo "???" >/dev/fd/5
+    # this is required because bash does not actually support concurrency 
+    # bash imposes a rendezvous regimen on named pipes and blocks processes until all pipes have 2 ends
+    # this causes deep dependency chains
+    # (in true concurrency, we would be allowed to create pipes even when one end has not yet been created, and we would not need these two lines of code)
+    # (rendezvous causes dependencies, which causes accidental complexity, which causes lots of head-scratching)
+    # (rendezvous can be implemented using an ACK/NAK protocol)
+    # (at the least, this pertains to bash under MacOSX Catalina, probably elsewhere, too)
+    echo "???" >/dev/fd/5 &
+    echo "???" >/dev/fd/6 &
 fi
 ./debug-exit "[$1] $0"
 

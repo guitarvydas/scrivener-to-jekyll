@@ -2,8 +2,9 @@
 #
 ## inputs:
 ## filename (fd 3)
-## prefix (fd 4)
+## prefix (fd 4) YYYY-MM-DD
 ## go (fd 5)
+## fullprefix (fd 6) YYYY-MM-DD-HH-MM-SS
 #
 ## outputs:
 ## <none>
@@ -18,13 +19,15 @@
 read filename </dev/fd/3
 read prefix </dev/fd/4
 read go </dev/fd/5
+#read fullprefix </dev/fd/6
+fullprefix=${prefix}
 if [ "${go}" == "go" ]
 then
     base=`basename "${filename}"`
     # edit to new file and move it to _posts
     sed -e "s@<img src=\"Images@<img src=\"/assets/${prefix}-Images@g" <"${filename}/${base}" >"../_posts/${prefix}-${base}"
     # move Images folder to ../assets/prefix-Images
-    mv "${filename}/Images" "../assets/${prefix}-Images"
+    mv "${filename}/Images" "../assets/${fullprefix}-Images"
     # delete source(s), completing the mv (mv is not cp)
     rm -rf "${filename}"
 fi

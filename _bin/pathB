@@ -19,10 +19,11 @@ wire2a=wire_$RANDOM
 wire2b=wire_$RANDOM
 wire3=wire_$RANDOM
 wire4=wire_$RANDOM
-mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3} ${wire4}
+wire5=wire_$RANDOM
+mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3} ${wire4} ${wire5}
 
-./wire-splitter2 "[$1] $0" 3<${wire1} 4>${wire1a} 5>${wire1b} &
-./wire-splitter2 "[$1] $0" 3<${wire2} 4>${wire2a} 5>${wire2b} &
+./wire-splitter2 "x [$1] $0" 3<${wire1} 4>${wire1a} 5>${wire1b} &
+./wire-splitter2 "y [$1] $0" 3<${wire2} 4>${wire2a} 5>${wire2b} &
 ./create-file-prefix-from-subdir "[$1] $0" 3<${wire1a} 4<${wire2a} 5>${wire3} &
 ./edit-and-move-with-images "[$1] $0" 3<${wire1b} 4<${wire3} 5<${wire2b} &
 
