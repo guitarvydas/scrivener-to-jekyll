@@ -3,7 +3,7 @@ filename=pin_$RANDOM
 content=pin_$RANDOM
 find ../_new -mindepth 1 -maxdepth 1 -iname '*' | while read targetMaybeWithBlanks
 do
-    if [ "../_new/.DS_store" == "${targetMaybeWithBlanks}" ]
+    if [ "../_new/.DS_Store" == "${targetMaybeWithBlanks}" ]
     then
 	echo "skipping [${targetMaybeWithBlanks}]"
     else
