@@ -25,6 +25,8 @@ then
     sed -e "s@<img src=\"Images@<img src=\"/assets/${prefix}-Images@g" <"${filename}/${base}" >"../_posts/${prefix}-${base}"
     # move Images folder to ../assets/prefix-Images
     mv "${filename}/Images" "../assets/${prefix}-Images"
+    # delete source(s), completing the mv (mv is not cp)
+    rm -rf "${filename}"
 fi
 ./debug-exit "[$1] $0"
 
