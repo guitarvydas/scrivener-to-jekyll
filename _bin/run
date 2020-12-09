@@ -9,7 +9,7 @@ do
     else
 	target=`echo "${targetMaybeWithBlanks}" | sed -e 's/ /\\ /g'`
 	echo "creating post from [${target}]"
-	rm -f pin_*
+	./cleanfifos
 	mkfifo ${filename}
 	mkfifo ${content}
 	./scrivener-to-jekyll 3<"${filename}" 4<"${content}" &
