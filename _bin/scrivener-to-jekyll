@@ -9,17 +9,17 @@
 ## <none> - side effect creates a file in ./_post and, maybe in ./assets/
 #
 
-wire1=wire_s2j_$RANDOM
-wire1a=wire_s2j_$RANDOM
-wire1b=wire_s2j_$RANDOM
-wire1c=wire_s2j_$RANDOM
+wire1=wire_s2j_1
+wire1a=wire_s2j_1a
+wire1b=wire_s2j_1b
+wire1c=wire_s2j_1c
 
-wire2=wire_s2j_$RANDOM
-wire2a=wire_s2j_$RANDOM
-wire2b=wire_s2j_$RANDOM
+wire2=wire_s2j_2
+wire2a=wire_s2j_2a
+wire2b=wire_s2j_2b
 
-wire3=wire_s2j_$RANDOM
-wire4=wire_s2j_$RANDOM
+wire3=wire_s2j_3
+wire4=wire_s2j_4
 
 mkfifo ${wire1}
 mkfifo ${wire1a}

@@ -11,15 +11,15 @@
 ## <none> - side-effect - file.html moved to ./_posts/<prefix>_filename.html
 #
 
-wire1=wire_pB_$RANDOM
-wire1a=wire_pB_$RANDOM
-wire1b=wire_pB_$RANDOM
-wire2=wire_pB_$RANDOM
-wire2a=wire_pB_$RANDOM
-wire2b=wire_pB_$RANDOM
-wire3=wire_pB_$RANDOM
-wire4=wire_pB_$RANDOM
-wire5=wire_pB_$RANDOM
+wire1=wire_pB_1
+wire1a=wire_pB_1a
+wire1b=wire_pB_1b
+wire2=wire_pB_2
+wire2a=wire_pB_2a
+wire2b=wire_pB_2b
+wire3=wire_pB_3
+wire4=wire_pB_4
+wire5=wire_pB_5
 mkfifo ${wire1} ${wire1a} ${wire1b} ${wire2} ${wire2a} ${wire2b} ${wire3} ${wire4} ${wire5}
 
 ./wire-splitter2 "x [$1] $0" 3<${wire1} 4>${wire1a} 5>${wire1b} &
