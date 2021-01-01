@@ -1,6 +1,6 @@
 #!/bin/bash
-filename=pin_$RANDOM
-content=pin_$RANDOM
+filename=pin_filename
+content=pin_content
 find ../_new -mindepth 1 -maxdepth 1 -iname '*' | while read targetMaybeWithBlanks
 do
     if [ "../_new/.DS_Store" == "${targetMaybeWithBlanks}" ]
