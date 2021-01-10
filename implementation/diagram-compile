@@ -1,0 +1,15 @@
+#!/bin/bash
+# usage: ./diagram-compile <filename.svg>
+dir=`dirname "$1"`
+bname=`basename "$1"`
+inf=${dir}/${bname}.svg
+jsonf=${dir}/${bname}.schematic.json
+lispf=${dir}/${bname}.schematic.lisp
+sbcl  --noinform \
+      --eval '(uiop:run-program "~/quicklisp/local-projects/arrowgrams/rm.bash")' \
+      --eval '(ql:register-local-projects)' \
+      --eval '(ql:quickload :arrowgrams/build :silent nil)' \
+      --eval "(arrowgrams/build::db-f-arrowgrams-to-json \"${inf}\" \"${jsonf}\" \"${lispf}\")" \
+      --quit
+
+# (arrowgrams/build::db-f-arrowgrams-to-json "svg/scrivener_to_Jekyll.svg" "svg/scrivener_to_Jekyll.schematic.json" "svg/scrivener_to_jekyll.schematic.lisp")

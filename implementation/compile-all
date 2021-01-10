@@ -1,0 +1,3 @@
+#!/bin/bash
+./diagram-compile "svg/Scrivener to Jekyll.svg"
+
