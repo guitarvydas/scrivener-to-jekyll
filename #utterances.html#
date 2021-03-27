@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="generator" content="Gatsby 2.24.0"/>
+    <link rel="icon" href="https://www.devxify.com/favicon-32x32.png?v=058887c00a8dc4caeb0a68319762b05b"/>
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta name="theme-color" content="#15171A"/>
+    <link rel="sitemap" type="application/xml" href="https://www.devxify.com/sitemap.xml"/>
+    <title data-react-helmet="true">How To Add Comments On Static Site
+    </title>
+    <link data-react-helmet="true" rel="canonical" href="https://www.devxify.com/comments-on-static-website/"/>
+    <link data-react-helmet="true" rel="icon" href="https://www.devxify.com/static/favicon-2410cfa9d04668ed3dba8320730a7d99.ico" type="image/x-icon"/>
+    <meta data-react-helmet="true" name="monetization" content="$ilp.uphold.com/drf7LaePnBrA"/>
+    <meta data-react-helmet="true" name="description" content="A blog without comments isn&#x27;t a blog, it&#x27;s very necessary to let your audience talk to you and leave their thoughts as they read the content. Learn how I implemented it on a static site."/>
+    <meta data-react-helmet="true" property="og:site_name" content="Devxify - Developers and Makers Den"/>
+    <meta data-react-helmet="true" property="og:type" content="article"/>
+    <meta data-react-helmet="true" property="og:title" content="How To Add Comments On Static Site"/>
+    <meta data-react-helmet="true" property="og:description" content="A blog without comments isn&#x27;t a blog, it&#x27;s very necessary to let your audience talk to you and leave their thoughts as they read the content. Learn how I implemented it on a static site."/>
+    <meta data-react-helmet="true" property="og:url" content="/comments-on-static-website/"/>
+    <meta data-react-helmet="true" property="og:image" content="https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/eeb1b/static-comments.png"/>
+    <meta data-react-helmet="true" property="article:published_time" content="2020-07-23T23:46:37.121Z"/>
+    <meta data-react-helmet="true" property="article:tag" content="WEB"/>
+    <meta data-react-helmet="true" property="article:publisher" content="https://www.facebook.com/devxify"/>
+    <meta data-react-helmet="true" property="article:author" content="https://www.facebook.com/devxify"/>
+    <meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/>
+    <meta data-react-helmet="true" name="twitter:title" content="How To Add Comments On Static Site"/>
+    <meta data-react-helmet="true" name="twitter:description" content="A blog without comments isn&#x27;t a blog, it&#x27;s very necessary to let your audience talk to you and leave their thoughts as they read the content. Learn how I implemented it on a static site."/>
+    <meta data-react-helmet="true" name="twitter:url" content="https://www.devxify.com/comments-on-static-website/"/>
+    <meta data-react-helmet="true" name="twitter:image" content="https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/eeb1b/static-comments.png"/>
+    <meta data-react-helmet="true" name="twitter:label1" content="Written by"/>
+    <meta data-react-helmet="true" name="twitter:data1" content="Ankit"/>
+    <meta data-react-helmet="true" name="twitter:label2" content="Filed under"/>
+    <meta data-react-helmet="true" name="twitter:data2" content="WEB"/>
+    <meta data-react-helmet="true" name="twitter:site" content="@devxify"/>
+    <meta data-react-helmet="true" name="twitter:creator" content="@devxify"/>
+    <meta data-react-helmet="true" property="og:image:width" content="1920"/>
+    <meta data-react-helmet="true" property="og:image:height" content="1079.741935483871"/>
+    <link rel="alternate" type="application/rss+xml" href="https://www.devxify.com/rss.xml"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/webpack-runtime-920f147d68c2e5c0d1ec.js"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/framework-3e2e69bc9c13563e38ba.js"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/app-5cc52c1278990c2a3b2f.js"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/29107295-417d3ecd33043b3d0de6.js"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/commons-6b74b886a7827518548f.js"/>
+    <link as="script" rel="preload" href="https://www.devxify.com/component---src-templates-post-tsx-ee386da55b76cab07054.js"/>
+    <link as="fetch" rel="preload" href="https://www.devxify.com/page-data/comments-on-static-website/page-data.json" crossorigin="anonymous"/>
+    <link as="fetch" rel="preload" href="https://www.devxify.com/page-data/app-data.json" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div id="___gatsby">
+      <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
+	<div class="post-template">
+	  <style data-emotion-css="zrzq7s">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-spacing:0;border-collapse:collapse;}img{max-width:100%;}html{box-sizing:border-box;font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}*,*:before,*:after{box-sizing:inherit;}a{background-color:transparent;}a:active,a:hover{outline:0;}b,strong{font-weight:bold;}i,em,dfn{font-style:italic;}h1{margin:0.67em 0;font-size:2em;}small{font-size:80%;}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}mark{background-color:#fdffb6;}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em;}button,input,optgroup,select,textarea{margin:0;color:inherit;font:inherit;}button{overflow:visible;border:none;}button,select{text-transform:none;}button,html input[type='button'],input[type='reset'],input[type='submit']{cursor:pointer;-webkit-appearance:button;}button[disabled],html input[disabled]{cursor:default;}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0;}input{line-height:normal;}input:focus{outline:none;}input[type='checkbox'],input[type='radio']{box-sizing:border-box;padding:0;}input[type='number']::-webkit-inner-spin-button,input[type='number']::-webkit-outer-spin-button{height:auto;}input[type='search']{box-sizing:content-box;-webkit-appearance:textfield;}input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none;}legend{padding:0;border:0;}textarea{overflow:auto;}table{border-spacing:0;border-collapse:collapse;}td,th{padding:0;}html{overflow-x:hidden;overflow-y:scroll;font-size:62.5%;-webkit-tap-highlight-color:rgba(0,0,0,0);}body{overflow-x:hidden;color:#303a3e;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:1.6rem;line-height:1.6em;font-weight:400;font-style:normal;-webkit-letter-spacing:0;-moz-letter-spacing:0;-ms-letter-spacing:0;letter-spacing:0;text-rendering:optimizeLegibility;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-moz-font-feature-settings:'liga' on;}::selection{text-shadow:none;background:#abc5fa;}hr{position:relative;display:block;width:100%;margin:2.5em 0 3.5em;padding:0;height:1px;border:0;border-top:1px solid #e4eaed;}audio,canvas,iframe,img,svg,video{vertical-align:middle;}fieldset{margin:0;padding:0;border:0;}textarea{resize:vertical;}p,ul,ol,dl,blockquote{margin:0 0 1.5em 0;}ol,ul{padding-left:1.3em;padding-right:1.5em;}ol ol,ul ul,ul ol,ol ul{margin:0.5em 0 1em;}ul{list-style:disc;}ol{list-style:decimal;}ul,ol{max-width:100%;}li{margin:0.5em 0;padding-left:0.3em;line-height:1.6em;}dt{float:left;margin:0 20px 0 0;width:120px;color:#15171A;font-weight:500;text-align:right;}dd{margin:0 0 5px 0;text-align:left;}blockquote{margin:1.5em 0;padding:0 1.6em 0 1.6em;border-left:#e5eff5 0.5em solid;}blockquote p{margin:0.8em 0;font-size:1.2em;font-weight:300;}blockquote small{display:inline-block;margin:0.8em 0 0.8em 1.5em;font-size:0.9em;opacity:0.8;}blockquote cite{font-weight:bold;}blockquote cite a{font-weight:normal;}a{color:#0d55e5;-webkit-text-decoration:none;text-decoration:none;}a:hover{-webkit-text-decoration:underline;text-decoration:underline;}h1,h2,h3,h4,h5,h6{margin-top:0;line-height:1.15;font-weight:600;text-rendering:optimizeLegibility;}h1{margin:0 0 0.5em 0;font-size:5.5rem;font-weight:600;}@media (max-width:500px){h1{font-size:2.2rem;}}h2{margin:1.5em 0 0.5em 0;font-size:2.2rem;}@media (max-width:500px){h2{font-size:1.8rem;}}h3{margin:1.5em 0 0.5em 0;font-size:1.8rem;font-weight:500;}@media (max-width:500px){h3{font-size:1.7rem;}}h4{margin:1.5em 0 0.5em 0;font-size:1.6rem;font-weight:500;}h5{margin:1.5em 0 0.5em 0;font-size:1.4rem;font-weight:500;}h6{margin:1.5em 0 0.5em 0;font-size:1.4rem;font-weight:500;}body{background:#fff;}.desc{text-align:center;}@media (prefers-color-scheme:dark){body{color:rgba(255,255,255,0.75);background:#191b1f;}img{opacity:0.9;}}
+	  </style>
+	  <style data-emotion-css="1xh3phr">.css-1xh3phr .site-main{margin-top:64px;background:#fff;padding-bottom:4vw;}@media (prefers-color-scheme:dark){.css-1xh3phr .site-main{background:#191b1f;}}
+	  </style>
+	  <style data-emotion-css="mmu3vk">.css-mmu3vk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;}.css-mmu3vk .site-main{margin-top:64px;background:#fff;padding-bottom:4vw;}@media (prefers-color-scheme:dark){.css-mmu3vk .site-main{background:#191b1f;}}
+	  </style>
+	  <div class="css-mmu3vk esvym2d0">
+	    <header class="site-header">
+	      <style data-emotion-css="ucagau">.css-ucagau{position:relative;padding:0 5vw;position:fixed;top:0;right:0;left:0;z-index:1000;background:#0a0b0c;}@media (max-width:700px){.css-ucagau{padding-right:0;padding-left:0;}}
+	      </style>
+	      <div class="css-ucagau">
+		<style data-emotion-css="s2cjas">.css-s2cjas{margin:0 auto;max-width:1040px;width:100%;}
+		</style>
+		<div class="css-s2cjas">
+		  <style data-emotion-css="18u2rvm">.css-18u2rvm{position:relative;z-index:100;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;overflow-y:hidden;height:64px;font-size:1.3rem;}
+		  </style>
+		  <nav class="css-18u2rvm">
+		    <style data-emotion-css="1y1e201">.css-1y1e201{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-right:10px;padding:10px 0 80px;font-weight:500;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;text-transform:uppercase;white-space:nowrap;-ms-overflow-scrolling:touch;}@media (max-width:700px){.css-1y1e201{margin-right:0;padding-left:5vw;}}
+		    </style>
+		    <div class="site-nav-left css-1y1e201 e1sju8vj0">
+		      <style data-emotion-css="3oagtl">.css-3oagtl{position:relative;z-index:100;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;display:inline-block;margin-right:32px;padding:12px 0;color:#fff;font-size:1.7rem;line-height:1.8rem;font-weight:bold;-webkit-letter-spacing:-0.5px;-moz-letter-spacing:-0.5px;-ms-letter-spacing:-0.5px;letter-spacing:-0.5px;text-transform:none;}.css-3oagtl:hover{-webkit-text-decoration:none;text-decoration:none;}.css-3oagtl img{display:block;width:auto;height:21px;}
+		      </style>
+		      <a class="site-nav-logo css-3oagtl" href="/">Devxify Blog
+		      </a>
+		      <style data-emotion-css="93cbs4">.css-93cbs4{position:relative;-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;}
+		      </style>
+		      <div class="css-93cbs4 e1sju8vj1">
+			<style data-emotion-css="pq8kbh">.css-pq8kbh{position:absolute;z-index:1000;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin:0 0 0 -12px;padding:0;list-style:none;-webkit-transition:all 1s cubic-bezier(0.19,1,0.22,1);transition:all 1s cubic-bezier(0.19,1,0.22,1);}.css-pq8kbh li{display:block;margin:0;padding:0;}.css-pq8kbh li a{position:relative;display:block;padding:12px 12px;color:#fff;opacity:0.8;-webkit-transition:opacity 0.35s ease-in-out;transition:opacity 0.35s ease-in-out;}.css-pq8kbh li a:hover{-webkit-text-decoration:none;text-decoration:none;opacity:1;}.css-pq8kbh li a:before{content:'';position:absolute;right:100%;bottom:8px;left:12px;height:1px;background:#fff;opacity:0.25;-webkit-transition:all 0.35s ease-in-out;transition:all 0.35s ease-in-out;}.css-pq8kbh li a:hover:before{right:12px;opacity:0.5;}
+			</style>
+			<ul role="menu" class="css-pq8kbh">
+			  <li role="menuitem">
+			    <a href="/">Home
+			    </a>
+			  </li>
+			  <li role="menuitem">
+			    <a href="/about">About
+			    </a>
+			  </li>
+			  <li role="menuitem">
+			    <a href="https://www.buymeacoffee.com/Devxify" target="_blank" rel="noreferrer nofollow">Buy Me A Coffee
+			    </a>
+			  </li>
+			</ul>
+			<style data-emotion-css="1h9xxnt">.css-1h9xxnt{visibility:hidden;position:absolute;top:9px;color:#fff;font-size:1.7rem;font-weight:400;text-transform:none;opacity:0;-webkit-transition:all 1s cubic-bezier(0.19,1,0.22,1);transition:all 1s cubic-bezier(0.19,1,0.22,1);-webkit-transform:translateY(175%);-ms-transform:translateY(175%);transform:translateY(175%);}.css-1h9xxnt .dash{left:-25px;}.css-1h9xxnt .dash:before{content:'– ';opacity:0.5;}
+			</style>
+			<span class="nav-post-title css-1h9xxnt e1sju8vj5">How To Add Comments On Static Site
+			</span>
+		      </div>
+		    </div>
+		    <style data-emotion-css="19n9jz8">.css-19n9jz8{-webkit-flex:0 1 auto;-ms-flex:0 1 auto;flex:0 1 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;padding:10px 0;height:64px;}@media (max-width:700px){.css-19n9jz8{display:none;}}
+		    </style>
+		    <div class="css-19n9jz8 e1sju8vj2">
+		      <style data-emotion-css="1wee57o">.css-1wee57o{-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+		      </style>
+		      <div class="css-1wee57o e1sju8vj3">
+			<style data-emotion-css="1wmzth6">.css-1wmzth6{display:inline-block;margin:0;padding:10px;opacity:0.8;}.css-1wmzth6:hover{opacity:1;}.css-1wmzth6 svg{height:1.8rem;fill:#fff;}.css-1wmzth6 svg{height:1.6rem;}
+			</style>
+			<a class="social-link-fb css-1wmzth6" href="https://t.me/devxify" target="_blank" title="Telegram" rel="noopener noreferrer">
+			  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+			    <path d="m12 24c6.629 0 12-5.371 12-12s-5.371-12-12-12-12 5.371-12 12 5.371 12 12 12zm-6.509-12.26 11.57-4.461c.537-.194 1.006.131.832.943l.001-.001-1.97 9.281c-.146.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953z">
+			    </path>
+			  </svg>
+			</a>
+			<style data-emotion-css="1mnl8gk">.css-1mnl8gk{display:inline-block;margin:0;padding:10px;opacity:0.8;}.css-1mnl8gk:hover{opacity:1;}.css-1mnl8gk svg{height:1.8rem;fill:#fff;}
+			</style>
+			<a href="https://twitter.com/devxify" title="Twitter" target="_blank" rel="noopener noreferrer" class="css-1mnl8gk">
+			  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+			    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm116.886719 199.601562c.113281 2.519532.167969 5.050782.167969 7.59375 0 77.644532-59.101563 167.179688-167.183594 167.183594h.003906-.003906c-33.183594 0-64.0625-9.726562-90.066406-26.394531 4.597656.542969 9.277343.8125 14.015624.8125 27.53125 0 52.867188-9.390625 72.980469-25.152344-25.722656-.476562-47.410156-17.464843-54.894531-40.8125 3.582031.6875 7.265625 1.0625 11.042969 1.0625 5.363281 0 10.558593-.722656 15.496093-2.070312-26.886718-5.382813-47.140624-29.144531-47.140624-57.597657 0-.265624 0-.503906.007812-.75 7.917969 4.402344 16.972656 7.050782 26.613281 7.347657-15.777343-10.527344-26.148437-28.523438-26.148437-48.910157 0-10.765624 2.910156-20.851562 7.957031-29.535156 28.976563 35.554688 72.28125 58.9375 121.117187 61.394532-1.007812-4.304688-1.527343-8.789063-1.527343-13.398438 0-32.4375 26.316406-58.753906 58.765625-58.753906 16.902344 0 32.167968 7.144531 42.890625 18.566406 13.386719-2.640625 25.957031-7.53125 37.3125-14.261719-4.394531 13.714844-13.707031 25.222657-25.839844 32.5 11.886719-1.421875 23.214844-4.574219 33.742187-9.253906-7.863281 11.785156-17.835937 22.136719-29.308593 30.429687zm0 0">
+			    </path>
+			  </svg>
+			</a>
+		      </div>
+		      <style data-emotion-css="tong54">.css-tong54{display:block;padding:4px 10px;margin:0 0 0 10px;border:#fff 1px solid;color:#fff;line-height:1em;border-radius:10px;opacity:0.8;}.css-tong54:hover{-webkit-text-decoration:none;text-decoration:none;opacity:1;cursor:pointer;}
+		      </style>
+		      <a class="css-tong54 e1sju8vj4">Subscribe
+		      </a>
+		      <style data-emotion-css="m4d7hj">.css-m4d7hj{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2000;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:rgba(9,10,11,0.97);opacity:0;-webkit-transition:opacity 0.2s ease-in;transition:opacity 0.2s ease-in;pointer-events:none;}.css-m4d7hj button{display:inline-block;margin:0 0 0 15px;padding:0 25px;height:52px;outline:none;color:#fff;font-size:1.7rem;line-height:38px;font-weight:400;text-align:center;background:#1a62f2;border-radius:8px;-webkit-font-smoothing:subpixel-antialiased;}.css-m4d7hj form{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 auto;max-width:540px;}.css-m4d7hj .form-group{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;}.css-m4d7hj .subscribe-email{display:block;padding:14px 20px;width:100%;border:none;color:#738a94;font-size:2rem;line-height:1em;font-weight:normal;-webkit-letter-spacing:0.5px;-moz-letter-spacing:0.5px;-ms-letter-spacing:0.5px;letter-spacing:0.5px;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;border-radius:8px;-webkit-transition:border-color 0.15s linear;transition:border-color 0.15s linear;-webkit-appearance:none;}@media (max-width:500px){.css-m4d7hj button{margin:12px 0 0;}}@media (prefers-color-scheme:dark){.css-m4d7hj p{color:rgba(255,255,255,0.7);}}
+		      </style>
+		      <div class="css-m4d7hj en1yp5g0">
+			<style data-emotion-css="1wawzd3">.css-1wawzd3{position:absolute;top:16px;right:20px;z-index:2000;display:block;width:40px;height:40px;}.css-1wawzd3:before{content:"";position:absolute;top:20px;right:4px;display:block;width:32px;height:1px;background:#fff;opacity:0.8;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}.css-1wawzd3:after{content:"";position:absolute;top:20px;right:4px;display:block;width:32px;height:1px;background:#fff;opacity:0.8;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}.css-1wawzd3:hover{cursor:default;}
+			</style>
+			<a class="css-1wawzd3 en1yp5g1">
+			</a>
+			<style data-emotion-css="1m65qjl">.css-1m65qjl{position:relative;margin:0 0 5vw 0;padding:4vw;color:#fff;text-align:center;}
+			</style>
+			<div class="css-1m65qjl en1yp5g2">
+			  <style data-emotion-css="1x7w8tm">.css-1x7w8tm{position:fixed;top:23px;left:30px;height:30px;font-size:1.7rem;line-height:1.8rem;font-weight:bold;-webkit-letter-spacing:-0.5px;-moz-letter-spacing:-0.5px;-ms-letter-spacing:-0.5px;letter-spacing:-0.5px;color:#fff;}
+			  </style>
+			  <p class="site-nav-logo css-1x7w8tm">Devxify Blog
+			  </p>
+			  <style data-emotion-css="sq0olt">.css-sq0olt{display:inline-block;margin:0 0 10px 0;font-size:5.2rem;line-height:1.15em;}
+			  </style>
+			  <h1 class="css-sq0olt en1yp5g3">Subscribe to Devxify
+			  </h1>
+			  <style data-emotion-css="wt9xer">.css-wt9xer{margin:0 auto 50px;max-width:650px;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:2.4rem;line-height:1.3em;font-weight:300;opacity:0.8;}
+			  </style>
+			  <p class="css-wt9xer en1yp5g4">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox
+			  </p>
+			  <style data-emotion-css="1qgkh6">.css-1qgkh6{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 auto;max-width:460px;}@media (max-width:500px){.css-1qgkh6{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}.css-1qgkh6 .form-group{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;}}
+			  </style>
+			  <form method="post" action="https://sendfox.com/form/1r84vv/1ylzgw" id="1ylzgw" data-async="true" target="_blank" class="css-1qgkh6">
+			    <style data-emotion-css="1sqo1hg">@media (max-width:500px){.css-1sqo1hg{width:100%;}}
+			    </style>
+			    <div class="form-group css-1sqo1hg egytw1t2">
+			      <style data-emotion-css="13qykxp">.css-13qykxp{display:block;padding:10px;width:100%;border:#dbe3e7 1px solid;color:#738a94;font-size:1.8rem;line-height:1em;font-weight:normal;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;border-radius:5px;-webkit-transition:border-color 0.15s linear;transition:border-color 0.15s linear;-webkit-appearance:none;}.css-13qykxp:focus{outline:0;border-color:#bfcdd5;}@media (prefers-color-scheme:dark){.css-13qykxp{border-color:#272a30;color:rgba(255,255,255,0.9);background:#202227;}.css-13qykxp:focus{border-color:#525866;}}
+			      </style>
+			      <input type="email" class="subscribe-email css-13qykxp egytw1t0" name="email" placeholder="Email" required=""/>
+			    </div>
+			    <div style="position:absolute;left:-5000px;display:none" aria-hidden="true">
+			      <input type="text" name="a_password" tabindex="-1" value="" autoComplete="off"/>
+			    </div>
+			    <style data-emotion-css="1hev7pv">.css-1hev7pv{position:relative;display:inline-block;margin:0 0 0 10px;padding:0 20px;height:43px;outline:none;color:#fff;font-size:1.5rem;line-height:39px;font-weight:400;text-align:center;background:#1a62f2;border-radius:5px;-webkit-font-smoothing:subpixel-antialiased;}.css-1hev7pv:active,.css-1hev7pv:focus{background:#1752c7;}@media (max-width:500px){.css-1hev7pv{margin:10px 0 0 0;width:100%;}}@media (prefers-color-scheme:dark){.css-1hev7pv{opacity:0.9;}}
+			    </style>
+			    <button type="submit" class="css-1hev7pv egytw1t1">
+			      <span>Subscribe
+			      </span>
+			    </button>
+			  </form>
+			</div>
+		      </div>
+		    </div>
+		  </nav>
+		</div>
+	      </div>
+	    </header>
+	    <style data-emotion-css="10yduf0">.css-10yduf0{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;position:relative;padding:0 5vw;}@media (prefers-color-scheme:dark){.css-10yduf0{background:#191b1f;}}
+	    </style>
+	    <main id="site-main" class="site-main css-10yduf0">
+	      <div class="css-s2cjas">
+		<style data-emotion-css="1cj30xk">.css-1cj30xk{position:relative;z-index:50;}
+		</style>
+		<article class="css-1cj30xk">
+		  <style data-emotion-css="1855cdu">.css-1855cdu{position:relative;margin:0 auto;padding:70px 170px 50px;border-top-left-radius:3px;border-top-right-radius:3px;}@media (max-width:1170px){.css-1855cdu{padding:60px 11vw 50px;}}@media (max-width:800px){.css-1855cdu{padding-right:5vw;padding-left:5vw;}}@media (max-width:500px){.css-1855cdu{padding:20px 0 35px;}}
+		  </style>
+		  <header class="post-full-header css-1855cdu ewnyor50">
+		    <style data-emotion-css="a12yu7">.css-a12yu7{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#738a94;font-size:1.3rem;line-height:1.4em;font-weight:600;text-transform:uppercase;}
+		    </style>
+		    <section class="post-full-tags css-a12yu7 ewnyor51">
+		      <a href="/tags/web/">WEB
+		      </a>
+		    </section>
+		    <style data-emotion-css="83v1oh">.css-83v1oh{margin:0 0 0.2em;color:#0b0c0e;}@media (max-width:500px){.css-83v1oh{margin-top:0.2em;font-size:3.3rem;}}@media (prefers-color-scheme:dark){.css-83v1oh{color:rgba(255,255,255,0.9);}}
+		    </style>
+		    <h1 class="post-full-title css-83v1oh ewnyor54">How To Add Comments On Static Site
+		    </h1>
+		    <style data-emotion-css="gungvw">.css-gungvw{margin:20px 0 0;color:var(--midgrey);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:2rem;line-height:1.4em;font-weight:400;}@media (max-width:500px){.css-gungvw{font-size:1.9rem;line-height:1.5em;}}@media (prefers-color-scheme:dark){.css-gungvw{color:#90a2aa;}}
+		    </style>
+		    <p class="post-full-custom-excerpt css-gungvw ewnyor52">A blog without comments isn&#x27;t a blog, it&#x27;s very necessary to let your audience talk to you and leave their thoughts as they read the content. Learn how I implemented it on a static site.
+		    </p>
+		    <style data-emotion-css="1jdorbk">.css-1jdorbk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;margin:35px 0 0;padding-top:15px;border-top:1px solid #e4eaed;}.css-1jdorbk .post-full-byline-content{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}.css-1jdorbk .post-full-byline-content .author-list{-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;padding:0 12px 0 0;}.css-1jdorbk .post-full-byline-meta{margin:2px 0 0;color:#90a2aa;font-size:1.2rem;line-height:1.2em;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;text-transform:uppercase;}.css-1jdorbk .post-full-byline-meta h4{margin:0 0 3px;font-size:1.3rem;line-height:1.4em;font-weight:500;}.css-1jdorbk .post-full-byline-meta h4 a{color:#2c3036;}.css-1jdorbk .post-full-byline-meta h4 a:hover{color:#15171A;}.css-1jdorbk .post-full-byline-meta .bull{display:inline-block;margin:0 4px;opacity:0.6;}@media (prefers-color-scheme:dark){.css-1jdorbk{border-top-color:#3b4049;}.css-1jdorbk .post-full-byline-meta h4 a{color:rgba(255,255,255,0.75);}.css-1jdorbk .post-full-byline-meta h4 a:hover{color:#fff;}}
+		    </style>
+		    <div class="post-full-byline css-1jdorbk ewnyor53">
+		      <section class="post-full-byline-content">
+			<style data-emotion-css="4yy0qg">.css-4yy0qg{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 0 0 4px;padding:0;list-style:none;}
+			</style>
+			<ul class="author-list css-4yy0qg e1vx1kx20">
+			  <style data-emotion-css="rzestn">.css-rzestn{position:relative;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin:0;padding:0;}.css-rzestn:hover .author-name-tooltip{opacity:1;-webkit-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px);}
+			  </style>
+			  <li class="author-list-item css-rzestn e1jay2160">
+			    <style data-emotion-css="19i4yp7">.css-19i4yp7{position:absolute;bottom:130%;left:50%;z-index:600;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;margin-left:-200px;width:400px;font-size:1.4rem;line-height:1.5em;background:white;border-radius:3px;box-shadow:rgba(39,44,49,0.08) 0 12px 26px,rgba(39,44,49,0.06) 1px 3px 8px;opacity:0;-webkit-transition:all 0.35s cubic-bezier(0.4,0.01,0.165,0.99);transition:all 0.35s cubic-bezier(0.4,0.01,0.165,0.99);-webkit-transform:scale(0.98) translateY(15px);-ms-transform:scale(0.98) translateY(15px);transform:scale(0.98) translateY(15px);pointer-events:none;padding:20px 20px 22px;}.css-19i4yp7:before{content:'';position:absolute;top:100%;left:50%;display:block;margin-left:-8px;width:0;height:0;border-top:8px solid #fff;border-right:8px solid transparent;border-left:8px solid transparent;}.css-19i4yp7 .author-info{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;padding:0 0 0 20px;}.css-19i4yp7 .author-info h2{margin:8px 0 0;font-size:1.6rem;}.css-19i4yp7 .author-info p{margin:4px 0 0;color:color(var(--midgrey) l(-10%));}.css-19i4yp7 .author-info .bio h2{margin-top:0;}.css-19i4yp7 .author-info .bio p{margin-top:0.8em;}.css-19i4yp7 .author-profile-image{-webkit-flex:0 0 60px;-ms-flex:0 0 60px;flex:0 0 60px;margin:0;width:60px;height:60px;border:none;}@media (max-width:1170px){.css-19i4yp7{margin-left:-50px;width:430px;}.css-19i4yp7:before{left:50px;}}@media (max-width:650px){.css-19i4yp7{display:none;}}@media (prefers-color-scheme:dark){.css-19i4yp7{background:#22252a;box-shadow:0 12px 26px rgba(0,0,0,0.4);}.css-19i4yp7:before{border-top-color:#22252a;}}
+			    </style>
+			    <div class="author-card css-19i4yp7">
+			      <style data-emotion-css="1k9giva">.css-1k9giva{display:block;width:100%;height:100%;background:#e4eaed;border-radius:100%;object-fit:cover;}@media (prefers-color-scheme:dark){.css-1k9giva{background:#191b1f;}}
+			      </style>
+			      <div class="author-profile-image css-1k9giva gatsby-image-wrapper" style="position:relative;overflow:hidden">
+				<div aria-hidden="true" style="width:100%;padding-bottom:100%">
+				</div>
+				<img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQCAQMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAAHOPWni4SAbuo2lQF//xAAcEAACAgIDAAAAAAAAAAAAAAACEQEDABMEEiL/2gAIAQEAAQUCMC3D5uK0XbrkkDluwXnEntXn/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/AYE//8QAFxEAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPwHSv//EAB0QAAIBBAMAAAAAAAAAAAAAAAABMQIRQVESIYH/2gAIAQEABj8CruO+uiG/RZYklxqk0PFh1uSEf//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExURBB/9oACAEBAAE/IaDbeFbqflv4kUjq4GLeGHbiKKw8uCu4UmIxqZlJVF9z/9oADAMBAAIAAwAAABDAMD//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAwEBPxANK66Qn//EABkRAAMAAwAAAAAAAAAAAAAAAAABERAhMf/aAAgBAgEBPxBupjFpj6f/xAAcEAEBAAMAAwEAAAAAAAAAAAABEQAhMUFhkVH/2gAIAQEAAT8QQWkKCVRLpw5atUg8S+MSE1DdE9aMUO6z1ObzSzHRHoplHmCgz6Y3VLzm49/eZaQ9SAB4+4IAhVGf/9k=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1"/>
+				<noscript>
+				  <picture>
+				    <source srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/b3d27/ankit.jpg 40w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/5a735/ankit.jpg 80w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/6e81a/ankit.jpg 120w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" sizes="(max-width: 400px) 100vw, 400px" />
+				    <img loading="lazy" sizes="(max-width: 400px) 100vw, 400px" srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/b3d27/ankit.jpg 40w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/5a735/ankit.jpg 80w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/6e81a/ankit.jpg 120w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" src="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+				  </picture>
+				</noscript>
+			      </div>
+			      <div class="author-info">
+				<div class="bio">
+				  <h2>Ankit
+				  </h2>
+				  <p>I sucked at biology in my school, so no bio for me
+				  </p>
+				  <p>
+				    <a href="/author/ankit/">More posts
+				    </a> by
+				    <!-- --> 
+				    <!-- -->Ankit
+				    <!-- -->.
+				  </p>
+				</div>
+			      </div>
+			    </div>
+			    <style data-emotion-css="1t8vvv8">.css-1t8vvv8{display:block;overflow:hidden;margin:0 -4px;width:40px;height:40px;border:#fff 2px solid;border-radius:100%;-webkit-transition:all 0.5s cubic-bezier(0.4,0.01,0.165,0.99) 700ms;transition:all 0.5s cubic-bezier(0.4,0.01,0.165,0.99) 700ms;}@media (max-width:500px){.css-1t8vvv8{width:36px;height:36px;}}@media (prefers-color-scheme:dark){.css-1t8vvv8{border-color:#1a1c20;}}
+			    </style>
+			    <a class="author-avatar css-1t8vvv8" href="/author/ankit/">
+			      <div class="author-profile-image css-1k9giva gatsby-image-wrapper" style="position:relative;overflow:hidden">
+				<div aria-hidden="true" style="width:100%;padding-bottom:100%">
+				</div>
+				<img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQCAQMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAAHOPWni4SAbuo2lQF//xAAcEAACAgIDAAAAAAAAAAAAAAACEQEDABMEEiL/2gAIAQEAAQUCMC3D5uK0XbrkkDluwXnEntXn/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/AYE//8QAFxEAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPwHSv//EAB0QAAIBBAMAAAAAAAAAAAAAAAABMQIRQVESIYH/2gAIAQEABj8CruO+uiG/RZYklxqk0PFh1uSEf//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExURBB/9oACAEBAAE/IaDbeFbqflv4kUjq4GLeGHbiKKw8uCu4UmIxqZlJVF9z/9oADAMBAAIAAwAAABDAMD//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAwEBPxANK66Qn//EABkRAAMAAwAAAAAAAAAAAAAAAAABERAhMf/aAAgBAgEBPxBupjFpj6f/xAAcEAEBAAMAAwEAAAAAAAAAAAABEQAhMUFhkVH/2gAIAQEAAT8QQWkKCVRLpw5atUg8S+MSE1DdE9aMUO6z1ObzSzHRHoplHmCgz6Y3VLzm49/eZaQ9SAB4+4IAhVGf/9k=" alt="Ankit" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1"/>
+				<noscript>
+				  <picture>
+				    <source srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/b3d27/ankit.jpg 40w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/5a735/ankit.jpg 80w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/6e81a/ankit.jpg 120w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" sizes="(max-width: 400px) 100vw, 400px" />
+				    <img loading="lazy" sizes="(max-width: 400px) 100vw, 400px" srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/b3d27/ankit.jpg 40w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/5a735/ankit.jpg 80w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/6e81a/ankit.jpg 120w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" src="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg" alt="Ankit" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+				  </picture>
+				</noscript>
+			      </div>
+			    </a>
+			  </li>
+			</ul>
+			<section class="post-full-byline-meta">
+			  <h4 class="author-name">
+			    <a href="/author/ankit/">Ankit
+			    </a>
+			  </h4>
+			  <div class="byline-meta-content">
+			    <time class="byline-meta-date" dateTime="2020-07-23">23 Jul 2020
+			    </time>
+			    <span class="byline-reading-time">
+			      <span class="bull">•
+			      </span> 
+			      <!-- -->7
+			      <!-- --> min read
+			    </span>
+			  </div>
+			</section>
+		      </section>
+		    </div>
+		  </header>
+		  <style data-emotion-css="1ejxp75">.css-1ejxp75{margin:25px 0 50px;height:500px;background:#c5d2d9 center center;background-size:cover;border-radius:5px;}@media (max-width:1170px){.css-1ejxp75{margin:25px -6vw 50px;border-radius:0;}.css-1ejxp75 img{max-width:1170px;}}@media (max-width:800px){.css-1ejxp75{height:auto;}}@media (max-width:500px){.css-1ejxp75{margin-bottom:4vw;height:auto;}}
+		  </style>
+		  <figure class="css-1ejxp75 ewnyor55">
+		    <div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;height:100%">
+		      <div aria-hidden="true" style="width:100%;padding-bottom:56.236559139784944%">
+		      </div>
+		      <img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACYklEQVQozx2SS08TYRSG5x+50Y0LjYaFaAxVEowXEhOFxIAYElTATr/vHaW0WspUwNLOTOd+a2em0BamJV4qBDUqKCwMIWg0GhdsWLl3YHNycpI3ed4nhzmTUTqz2ukJ6SQpnKXFDip0UXGes9Y5b42rhFzZ5Owkp49w6kOoFJoLx4fjwQngMOczWmxKPzdR6iDFC1SIUdEj9g5becs6Nday4qbI6jlW54jKQU/DeAojDT1ztDDdWaOXt7qTcowIXRBTRN/LNDaE1noxfCmEDSksFxtqsZ585lCizcHkYUQId6g8SGXmelLpScpXuNJVKvWiFBB7c7q+Lq+sWq/e+O2m37b1ZkGss7w7TGSRszTYDux+ekjK/KRBjhjdROyDPAC5Dnc5bptjWnFc80uhozXvP5L6x4RrcaGPygbsMpwQbp6ax0ie+QZ/FZUHUAegDEOxOacthKHaCpSWo7fmCoszcj1vN0eF4DbkKpxluCtceY3zXM5hInWLcCN7eZgE2ixn+rkFfW5xfrY6PRuAL4/m3NG8d+O5zUJro/yalt+nql+y9d1sg5mGkYURzRmYkcMpGLmE/jihjiWUoUTpVkLqYYVT8fkYKyzBfYfKB1rZSi3s8Et72SVmCMpdqtyjyiBVRqC+gFmANQk9uvdCukTFTirchBzRfYb3Cd429XbTtV98+JcPmXGqXibSRSJ2EiHKa7CsQyu2BCtD9TQ1SrDWUfkKbwv+DoLvNPidqu/zzYNsk4mYo5c6TgsnaCFqFZWPkrXICtw1VD7C24S3AX/7KPkD1T+o7j+pHaQa/yYb/wEki4HcD1Y/wwAAAABJRU5ErkJggg==" alt="How To Add Comments On Static Site" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/>
+		      <noscript>
+			<picture>
+			  <source srcset="https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/c5c6c/static-comments.png 930w,
+					  https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/fe828/static-comments.png 1860w,
+					  https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/eeb1b/static-comments.png 1920w" sizes="(max-width: 1920px) 100vw, 1920px" />
+			  <img loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/c5c6c/static-comments.png 930w,
+												https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/fe828/static-comments.png 1860w,
+												https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/eeb1b/static-comments.png 1920w" src="https://www.devxify.com/static/6a7a961ca3a6739cdb96903bb1b0a8e3/eeb1b/static-comments.png" alt="How To Add Comments On Static Site" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+			</picture>
+		      </noscript>
+		    </div>
+		  </figure>
+		  <style data-emotion-css="1htajhg">.css-1htajhg{position:relative;margin:0 auto;padding:0 170px 6vw;min-height:230px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:2rem;line-height:1.6em;background:#fff;}@media (max-width:1170px){.css-1htajhg{padding:0 11vw;}}@media (max-width:800px){.css-1htajhg{padding:0 5vw;font-size:1.8rem;}}@media (max-width:500px){.css-1htajhg{padding:0;}}@media (max-width:500px){.css-1htajhg .post-full-custom-excerpt{font-size:1.9rem;line-height:1.5em;}}.css-1htajhg .no-image{padding-top:0;}.css-1htajhg h1,.css-1htajhg h2,.css-1htajhg h3,.css-1htajhg h4,.css-1htajhg h5,.css-1htajhg h6,.css-1htajhg p,.css-1htajhg ul,.css-1htajhg ol,.css-1htajhg dl,.css-1htajhg pre,.css-1htajhg blockquote,.css-1htajhg .post-full-comments,.css-1htajhg .footnotes{margin:0 0 1.5em 0;min-width:100%;}@media (max-width:500px){.css-1htajhg p,.css-1htajhg ul,.css-1htajhg ol,.css-1htajhg dl,.css-1htajhg pre,.css-1htajhg .post-full-comments,.css-1htajhg .footnotes{margin-bottom:1.28em;}}.css-1htajhg li{word-break:break-word;}.css-1htajhg li p{margin:0;}.css-1htajhg a{color:#1a62f2;word-break:break-word;box-shadow:#1a62f2 0 -1px 0 inset;-webkit-transition:all 0.2s ease-in-out;transition:all 0.2s ease-in-out;font-weight:600;}.css-1htajhg a:hover{color:#fe5186;-webkit-text-decoration:none;text-decoration:none;box-shadow:#fe5186 0 -1px 0 inset;}.css-1htajhg strong,.css-1htajhg em{color:#0a0b0c;}.css-1htajhg small{display:inline-block;line-height:1.6em;}.css-1htajhg img,.css-1htajhg video{display:block;margin:1.5em auto;max-width:1040px;height:auto;}@media (max-width:1040px){.css-1htajhg img,.css-1htajhg video{width:100%;}}.css-1htajhg img[src$='#full']{max-width:none;width:100vw;}.css-1htajhg img + br + small{display:block;margin-top:-3em;margin-bottom:1.5em;text-align:center;}.css-1htajhg iframe{margin:0 auto !important;}.css-1htajhg blockquote{margin:0 0 1.5em;padding:0 1.5em;border-left:#3eb0ef 3px solid;}@media (max-width:500px){.css-1htajhg blockquote{padding:0 1.3em;}}.css-1htajhg blockquote p{margin:0 0 1em 0;color:inherit;font-size:inherit;line-height:inherit;font-style:italic;}.css-1htajhg blockquote p:last-child{margin-bottom:0;}.css-1htajhg code{padding:0 5px 2px;font-size:0.8em;line-height:1em;font-weight:400 !important;background:#e5eff5;border-radius:3px;}.css-1htajhg p code{word-break:break-all;}.css-1htajhg pre{overflow-x:auto;padding:20px;max-width:100%;color:#e5eff5;font-size:1.4rem;line-height:1.5em;border-radius:5px;}.css-1htajhg pre::selection{color:#3b474d;}.css-1htajhg pre code{padding:0;font-size:inherit;line-height:inherit;background:transparent;}.css-1htajhg pre code:not(span){color:inherit;}.css-1htajhg .fluid-width-video-wrapper{margin:1.5em 0 3em;}.css-1htajhg hr{margin:2em 0;}.css-1htajhg hr:after{content:'';position:absolute;top:-15px;left:50%;display:block;margin-left:-10px;width:1px;height:30px;background:#e4eaed;box-shadow:#fff 0 0 0 5px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}.css-1htajhg hr + p{margin-top:1.2em;}.css-1htajhg h1,.css-1htajhg h2,.css-1htajhg h3,.css-1htajhg h4,.css-1htajhg h5,.css-1htajhg h6{color:#0a0b0c;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;}.css-1htajhg h1{margin:0.5em 0 0.4em;font-size:4.2rem;line-height:1.25em;font-weight:600;}.css-1htajhg p + h1{margin-top:0.8em;}@media (max-width:800px){.css-1htajhg h1{font-size:3.2rem;line-height:1.25em;}}.css-1htajhg h2{margin:0.5em 0 0.4em;font-size:3.2rem;line-height:1.25em;font-weight:600;}.css-1htajhg p + h2{margin-top:0.8em;}@media (max-width:800px){.css-1htajhg h2{margin-bottom:0.3em;font-size:2.8rem;line-height:1.25em;}}.css-1htajhg h3{margin:0.5em 0 0.2em;font-size:2.5rem;line-height:1.3em;font-weight:600;}.css-1htajhg h2 + h3{margin-top:0.7em;}@media (max-width:800px){.css-1htajhg h3{margin-bottom:0.3em;font-size:2.4rem;line-height:1.3em;}}.css-1htajhg h4{margin:0.5em 0 0.2em;font-size:2.5rem;font-weight:600;}.css-1htajhg h2 + h4{margin-top:0.7em;}.css-1htajhg h3 + h4{margin-top:0;}@media (max-width:800px){.css-1htajhg h4{margin-bottom:0.3em;font-size:2.4rem;line-height:1.3em;}}.css-1htajhg h5{display:block;margin:0.5em 0;padding:0.4em 1em 0.9em;border:0;color:#1a62f2;font-family:Georgia,serif;font-size:3.2rem;line-height:1.35em;text-align:center;}@media (min-width:1180px){.css-1htajhg h5{max-width:1060px;}}@media (max-width:800px){.css-1htajhg h5{margin-bottom:1em;margin-left:1.3em;padding:0 0 0.5em;font-size:2.4rem;text-align:initial;}}.css-1htajhg h6{margin:0.5em 0 0.2em 0;font-size:2rem;font-weight:700;}@media (max-width:800px){.css-1htajhg h6{font-size:1.8rem;line-height:1.4em;}}.css-1htajhg table{display:inline-block;overflow-x:auto;margin:0.5em 0 2.5em;max-width:100%;width:auto;border-spacing:0;border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:1.6rem;white-space:nowrap;vertical-align:top;}.css-1htajhg table{-webkit-overflow-scrolling:touch;background:radial-gradient(ellipse at left,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 75%) 0 center,radial-gradient(ellipse at right,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 75%) 100% center;background-attachment:scroll,scroll;background-size:10px 100%,10px 100%;background-repeat:no-repeat;}.css-1htajhg table td:first-of-type{background-image:linear-gradient( to right,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100% );background-size:20px 100%;background-repeat:no-repeat;}.css-1htajhg table td:last-child{background-image:linear-gradient( to left,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100% );background-position:100% 0;background-size:20px 100%;background-repeat:no-repeat;}.css-1htajhg table th{color:#15171A;font-size:1.2rem;font-weight:700;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;text-align:left;text-transform:uppercase;background-color:#f4f8fb;}.css-1htajhg table th,.css-1htajhg table td{padding:6px 12px;border:#e1edf4 1px solid;}@media (prefers-color-scheme:dark){.css-1htajhg{background:#191b1f;}.css-1htajhg h1,.css-1htajhg h2,.css-1htajhg h3,.css-1htajhg h4,.css-1htajhg h6{color:rgba(255,255,255,0.9);}.css-1htajhg a{color:#fe5186;box-shadow:inset 0 -1px 0 #fe5186;}.css-1htajhg a:hover{color:#1a62f2;}.css-1htajhg strong{color:#fff;}.css-1htajhg em{color:#fff;}.css-1htajhg code{color:#fff;background:#000;}.css-1htajhg hr{border-top-color:#2b2f36;}.css-1htajhg figcaption{color:rgba(255,255,255,0.6);}.css-1htajhg table td:first-of-type{background-image:linear-gradient(to right,#191b1f 50%,#191b1f 100%);}.css-1htajhg table td:last-child{background-image:linear-gradient(270deg,#191b1f 50%,rgba(25,27,31,0));}.css-1htajhg table th{color:rgba(255,255,255,0.85);background-color:#2b2f36;}.css-1htajhg table th,.css-1htajhg table td{border:#2b2f36 1px solid;}.css-1htajhg .kg-bookmark-container,.css-1htajhg .kg-bookmark-container:hover{color:rgba(255,255,255,0.75);box-shadow:0 0 1px rgba(255,255,255,0.9);}}.css-1htajhg code[class*='language-'],.css-1htajhg pre[class*='language-']{color:white;background:none;font-family:Consolas,Menlo,Monaco,source-code-pro,Courier New,monospace;font-feature-settings:normal;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;margin-bottom:0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}.css-1htajhg pre[class*='language-']{overflow:auto;}.css-1htajhg pre[class*='language-']::-moz-selection{background:hsl(207,4%,16%);}.css-1htajhg pre[class*='language-']::selection{background:hsl(207,4%,16%);}.css-1htajhg pre[class*='language-']::-moz-selection,.css-1htajhg pre[class*='language-']::-moz-selection{text-shadow:none;background:hsla(0,0%,100%,0.15);}.css-1htajhg pre[class*='language-']::selection,.css-1htajhg pre[class*='language-']::selection{text-shadow:none;background:hsla(0,0%,100%,0.15);}.css-1htajhg *:not(pre) > code[class*='language-']{border-radius:0.3em;background:rgb(1,22,39);color:white;padding:0.15em 0.5em;white-space:normal;}.css-1htajhg .token.attr-name{color:rgb(173,219,103);font-style:italic;}.css-1htajhg .token.comment{color:rgb(128,147,147);}.css-1htajhg .token.string,.css-1htajhg .token.url{color:rgb(173,219,103);}.css-1htajhg .token.variable{color:rgb(214,222,235);}.css-1htajhg .token.number{color:rgb(247,140,108);}.css-1htajhg .token.builtin,.css-1htajhg .token.char,.css-1htajhg .token.constant,.css-1htajhg .token.function{color:rgb(130,170,255);}.css-1htajhg .token.punctuation{color:rgb(199,146,234);}.css-1htajhg .token.selector,.css-1htajhg .token.doctype{color:rgb(199,146,234);font-style:'italic';}.css-1htajhg .token.class-name{color:rgb(255,203,139);}.css-1htajhg .token.tag,.css-1htajhg .token.operator,.css-1htajhg .token.keyword{color:#ffa7c4;}.css-1htajhg .token.boolean{color:rgb(255,88,116);}.css-1htajhg .token.property{color:rgb(128,203,196);}.css-1htajhg .token.namespace{color:rgb(178,204,214);}.css-1htajhg pre[data-line]{padding:1em 0 1em 3em;position:relative;}.css-1htajhg .gatsby-highlight-code-line{background-color:hsla(207,95%,15%,1);display:block;margin-right:-1.3125rem;margin-left:-1.3125rem;padding-right:1em;padding-left:1.25em;border-left:0.25em solid #ffa7c4;}.css-1htajhg .gatsby-highlight{margin-bottom:1.75rem;margin-left:-1.3125rem;margin-right:-1.3125rem;border-radius:10px;background:#011627;-webkit-overflow-scrolling:touch;overflow:auto;}.css-1htajhg .gatsby-highlight pre[class*='language-']{float:left;min-width:100%;}
+		  </style>
+		  <section class="post-full-content css-1htajhg e14ijd7g0">
+		    <div>
+		      <p>Are you travelling in the new bandwagon of static JAMstack website? If yes, the you must be missing some of the ways to add the lost dynamic features like blog comments. Some of you might have even thought of completely removing it but let me ask you a question first, is a blog worth it if readers can’t share their feelings? I’ll share an example, few days back I wrote an article on 
+			<a href="https://dev.to/devxify">Dev.to↗
+			</a> about web accessibility. It looked great to be but later I got to know I messed up with Markdown and some words were just completely omitted in during HTML generation, thanks to the readers and the comment section that I got to know about that very soon. Now ask yourself, does your blog needs a comment system?
+		      </p>
+
+		      <h2>Benefits of Comments
+		      </h2>
+
+		      <ol>
+
+			<li>Better Interaction
+			</li>
+
+			<li>Easy Feedback Collection
+			</li>
+
+			<li>Increased Time On-Page
+			</li>
+
+			<li>Increased Trust
+			</li>
+
+		      </ol>
+
+		      <p>So after all these I too was looking for a comment system for my site, earlier I did had comments on my website provided by Just-Comments but they planned to shut down their service due to low revenue &amp; traction and I was now left with no comment system. Also I didn’t want to miss the awesome but occasional constructive feedback some of you guys leave in the comment section.
+		      </p>
+
+		      <p>
+			<a href="https://www.devxify.com/go/sponsor" rel="nofollow sponsored" target="_blank">
+			  <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:1080px">
+			    
+			    <span class="gatsby-resp-image-background-image" style="padding-bottom:18.6%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAzElEQVQI122Ou27CMABF89F8Qlf4AaZSISTETEcqBjbIAEQkqYH4USd2DLHztIGYMNMzX91znMNN+JnZcmXL/GObDH1esPgMEcYYQhgEQRiGdV3bN4wxjrF6jvMJ4JfmOiXVTupaZVLllFLP84RIE57elLDfYxZBQhMESdE0+hgJP3K+TurC+Z9g+3u2Wv6IJO5etdaEENd1OWMviy7tYpYSeob4NwR5VV13R7QBTm9N7OMRm6I0etDvf45G3VhK2QUjhAAAbdva/+iyn6Zi2ftbn9LTAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block">
+			    </span>
+			    
+			    <img class="gatsby-resp-image-image" alt="Ads on Devxify" title="Ads on Devxify" src="https://www.devxify.com/static/4c228d071ab450812d356f4d26ae2f90/3a730/sponsor.png" srcSet="https://www.devxify.com/static/4c228d071ab450812d356f4d26ae2f90/a5a5d/sponsor.png 500w, https://www.devxify.com/static/4c228d071ab450812d356f4d26ae2f90/fc01a/sponsor.png 1000w, https://www.devxify.com/static/4c228d071ab450812d356f4d26ae2f90/3a730/sponsor.png 1080w" sizes="(max-width: 1080px) 100vw, 1080px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy"/>
+			    
+			  </span>
+			</a>
+		      </p>
+
+		      <p style="text-align:center;font-size:1.25rem">
+			<strong>Sponsored Ad on Devxify
+			</strong>
+		      </p>
+
+		      <p>Now I had a tough decision to choose a comment system among different offering in the market, to do this I made a list of all viable and well-known provider. My list compromised of :
+		      </p>
+
+		      <ol>
+
+			<li>Disqus
+			</li>
+
+			<li>Hyvor Talk
+			</li>
+
+			<li>Commento
+			</li>
+
+			<li>Utteranc.es 
+			</li>
+
+		      </ol>
+
+		      <p>Now even though I had created a small list, but I still had few requirements in back of my mind. The first and foremost was that the UI shouldn’t suck and I do believe ads make the UI suck, unless implemented in an extremely user friendly way. My second requirement was that the comment system must be light-weight and should load in a breeze (I’m a lover of webperf). The third and the last one was to be privacy friendly, if you guys have followed me then you much know how much value I give to user privacy accessibility.
+		      </p>
+
+		      <p>(
+			<strong>P.S.
+			</strong> Spoiler Alert, I went with Utterances)
+		      </p>
+
+		      <h2>Why I Didn’t Choose Disqus
+		      </h2>
+
+		      <p>As much as I know, 
+			<a href="https://disqus.com/">Disqus↗
+			</a> is the largest by all terms among this list. They are a pretty matured business and as a comment system they have everything you wish but they also have somethings you don’t wish for. First and foremost is that they come with ads in their free plan also apart from ads they also collect user data which means it’s very unfriendly to your privacy. Apart from privacy issue, they have performance issue too. If you implement their widget then that makes your webpage load slower than usual.
+		      </p>
+
+		      <p>
+			<span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:1366px">
+			  
+			  <span class="gatsby-resp-image-background-image" style="padding-bottom:48%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABqklEQVQoz01RTW/TQBD1j0ecELeWj5KURiUXDlwQQoIDUlVUoVaiTRO3RXUMcZNGTvy93o+Z2WHXbhGjJ++ud968mbfBi8uhw/OfHjvne68vDwbhu8FsPLh6/+ZiOAwPB7PRfjh+NX27Ox3tTPZ3J8Oe4hCARUMYFRhXaJgVWQnUaqnaBC2iJWLGLqdqskyaBgkIgNARA2a2lrlb1KdDvL5wWygW2fdnboNiKZMv3S2q1Yk1rRVVn+xYjoxElroC0YenZXjs75weks8RS0i++irF2oI0WdjMz6BNAdAYCDpRcOm9PFqOSr7JOar4d8VxzXPBtwXL8AfUKaynZjvDOmJyFK/Mm9Mndfy5a8Z3cLvV87S9L2WSy+u1DO/bRe7cqHUeq+IORCpX56ZeVXXjyeLPkc4j36za+KMyJwkdLexdrtBoMNq5U8cfLQg0Uqt2u11mm1WbpUEv6D/QyKs9NkUJPDpLXh7f/Crc4FYj9+HmAmOInNvWgfDBbXroGYS1PtcsvunJ+F/dnqu1LrrIfWQO/z0Vc9NKNwkiNqWU5vEv9/aT6kJKKR7jL0MtLCjWGtmFAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block">
+			  </span>
+			  
+			  <img class="gatsby-resp-image-image" alt="Disqus Landing Page" title="Disqus Landing Page" src="https://www.devxify.com/static/10c7538065f2e1007365594d9b1a4041/1ae1d/disqus.png" srcSet="https://www.devxify.com/static/10c7538065f2e1007365594d9b1a4041/a5a5d/disqus.png 500w, https://www.devxify.com/static/10c7538065f2e1007365594d9b1a4041/fc01a/disqus.png 1000w, https://www.devxify.com/static/10c7538065f2e1007365594d9b1a4041/1ae1d/disqus.png 1366w" sizes="(max-width: 1366px) 100vw, 1366px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy"/>
+			  
+			</span>
+		      </p>
+
+		      <p style="text-align:center;font-size:1.25rem">Disqus Landing Page
+		      </p>
+
+		      <p>Though comments are important to me, but I won’t have them at the price of user privacy and web performance. So, this was the reason to keep myself away from Disqus.
+		      </p>
+
+		      <h2>Why I Didn’t Choose Hyvor Talk
+		      </h2>
+
+		      <p>
+			<a href="https://talk.hyvor.com">Hyvor Talks↗
+			</a> looks great works great. It’s just like a Disqus but with better privacy and faster load time. Hyvor Talk even has a generous free plan for upto 40,000 pageviews, when I had a look, it did fell awesome. 
+		      </p>
+
+		      <p>Though I didn’t have any issues regarding privacy, UI or performance but had some different kind of issue. The first issue I faced is in the way they charge users. The thing I found that though they based in Sri Lanka but still collect nation specific taxes like GST &amp; VAT. I even had a chat with its maker and after few mails he told me that he would be getting back to me soon after discussing with their payment provider (It’s Paddle Payment Gateway if you wish to know). I later got a response and after all that I believe that their whole tax thing is managed by Paddle and I personally am a very big fan of their service.
+		      </p>
+
+		      <p>
+			<span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:820px">
+			  
+			  <span class="gatsby-resp-image-background-image" style="padding-bottom:43.99999999999999%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABrklEQVQoz1WRbWvaUBTH+x32RfYJ+mYfpY2byhAmFIZC96YPtIUW2VhhZTjGXnRsfVUo1cTSFdoXm90DiHHxKSbem8Rpoia5V4331CStaw//c+Ee+MH//M8CVKKBYg8VBzHCqitEzxO9QIxzYnwjRoFqOepPhFALPilGQFwGcSl4Q3Gzr9fY8jEtZ9U+q7+OHHw2lt+N5Y/ubKjzATwj62mQt0DNQHMDlF1QMqC+gcqzceuAdC7ooOooX+x6lg4ak6E06v0IyRDmoLkGOOvDymto7wN6D+gApARFX0fmT/hfzG9vOPM/tx2D8hLUV6H9lik7rLUJ+EOw8Euqn0ysIjA2HPT7lmlZJqGUTQkxzu5sh4H9fT5q7pPOpYOOp/IeVJ4yedtSixaWGGPttqaoqNVSu70+eLYf4TwwJsZAinSLL9bTq8JhCuocKy9T9VPn+lXve5KYYleTOrimo+rAxJP+b6Ll78NRqMbdP9zi40eHu08AJbxy1MG8U0qOSpyNCzY6tVHeRryNBQfnHp7q1nnMk+JM8i88raX8rf5dusaVqwuOxjs472p8IGEO3wBA+r5eep/bswAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block">
+			  </span>
+			  
+			  <img class="gatsby-resp-image-image" alt="Hyvor Talk" title="Hyvor Talk" src="https://www.devxify.com/static/83374cf3e0cd6a5be1c057cfabc9c610/70374/hyvor-talk.png" srcSet="https://www.devxify.com/static/83374cf3e0cd6a5be1c057cfabc9c610/a5a5d/hyvor-talk.png 500w, https://www.devxify.com/static/83374cf3e0cd6a5be1c057cfabc9c610/70374/hyvor-talk.png 820w" sizes="(max-width: 820px) 100vw, 820px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy"/>
+			  
+			</span>
+		      </p>
+
+		      <p style="text-align:center;font-size:1.25rem">Hyvor Talk
+		      </p>
+
+		      <p>Apart from this another issue was my past experience with Just-Comments, though I wish Hyvor Talk a great success but still startups do work on the swords edge and didn’t want my comment system provider to vanish soon. Also, I would have preferred a pay-as-you go plan as I don’t get huge traffic or comments on Devxify. Though it’s completely my feeling, you are free to take a trial and share your experience in the comment system, I have seen some people who are pretty happy and satisfied with Hyvor Talk.
+		      </p>
+
+		      <p>Another important thing, Hyvor markets itself as privacy friendly option to Disqus but their website itself tracks user with Google analytics and Facebook analytics. Smells fishy?
+		      </p>
+
+		      <h2>Why I Didn’t Choose Commento
+		      </h2>
+
+		      <p>
+			<a href="https://commento.io/">Commento↗
+			</a> is a privacy focused commenting tool. They too have most of the features you wish from a comment system, but they require a 99$ payment per year, per site which is on a higher side for small blogs and portfolio sites. Apart from this they have everything you wish for.
+		      </p>
+
+		      <p>If your wallet allows then you will have access to automatic moderation tool, API access, shadow banning, single sign-on, sticky comments and much more. Even though I didn’t went with them but they are indeed worth a try. Also, Commento has a self-host version too where you can skip paying them and directly host them, I didn’t self-host it because I believe in static and 
+			<a href="https://www.devxify.com/jamstack-for-web/">JAMstack↗
+			</a> sites and avoid managing servers.
+		      </p>
+
+		      <h2>Why I Chose Utterances
+		      </h2>
+
+		      <p>If you visit my site (You are already here, haha), you will see that I have already implemented 
+			<a href="https://utteranc.es/">Utterances↗
+			</a> there to manage comments. Also among all others Utterances is the most unique one in terms of managing comments. They use GitHub issues to store and display comments on to your webpage and each webpage is identified as a different issue.
+		      </p>
+
+		      <p>I went with Utterances because it free to use as long as you stay under the limits of GitHub issues API. Also, as my site is more focused to developers so everyone generally has a GitHub account and it makes the sign-in process ease. I believe that Utterances is the most basic offering here but sometimes basic is what you.
+		      </p>
+
+		      <p>Though I have been using them for a while, but they still have some cons, the biggest is lack of moderation of comments. It’s practically impossible to moderate comments and GitHub doesn’t has such feature as of now, the only way around is to personally block/delete comments which you find useless or spam. Also, as it uses GitHub issues API so you also get to use reactions on others comments. If you are like me who gets few comments on your webpage then this not an issue. Last but not the least, Utterances implements comments on your webpage within a rendered 
+			<code class="language-text">&lt;iframe&gt;
+			</code> which mean that Utterances has no SEO benefit, on the brighter site the spam (if any) won’t affect your SEO in a negative way too.
+		      </p>
+
+		      <h3>Utterances Implementation
+		      </h3>
+
+		      <ol>
+
+			<li>Create a GitHub repo to store your comments.
+			</li>
+
+			<li>Install Utterances Bot to the repo.
+			</li>
+
+			<li>Go to Utterances site and generate script based on repo name and style.
+			</li>
+
+			<li>Simple paste the script after the end of the content.
+			</li>
+
+		      </ol>
+
+		      <div class="gatsby-highlight" data-language="html">
+			<pre class="language-html">
+			  <code class="language-html">
+			    <span class="token comment">&lt;!--Here&#x27;s the sample code for Utteranc.es--&gt;
+			    </span>
+
+			    <span class="token tag">
+			      <span class="token tag">
+				<span class="token punctuation">&lt;
+				</span>script
+			      </span> 
+			      <span class="token attr-name">src
+			      </span>
+			      <span class="token attr-value">
+				<span class="token punctuation attr-equals">=
+				</span>
+				<span class="token punctuation">&quot;
+				</span>https://utteranc.es/client.js
+				<span class="token punctuation">&quot;
+				</span>
+			      </span>
+			      
+			      <span class="token attr-name">data-repo
+			      </span>
+			      <span class="token attr-value">
+				<span class="token punctuation attr-equals">=
+				</span>
+				<span class="token punctuation">&quot;
+				</span>owner/repo-name
+				<span class="token punctuation">&quot;
+				</span>
+			      </span>
+			      
+			      <span class="token attr-name">data-issue-term
+			      </span>
+			      <span class="token attr-value">
+				<span class="token punctuation attr-equals">=
+				</span>
+				<span class="token punctuation">&quot;
+				</span>title
+				<span class="token punctuation">&quot;
+				</span>
+			      </span>
+			      
+			      <span class="token attr-name">data-theme
+			      </span>
+			      <span class="token attr-value">
+				<span class="token punctuation attr-equals">=
+				</span>
+				<span class="token punctuation">&quot;
+				</span>github-light
+				<span class="token punctuation">&quot;
+				</span>
+			      </span>
+			      
+			      <span class="token attr-name">crossorigin
+			      </span>
+			      <span class="token attr-value">
+				<span class="token punctuation attr-equals">=
+				</span>
+				<span class="token punctuation">&quot;
+				</span>anonymous
+				<span class="token punctuation">&quot;
+				</span>
+			      </span>
+			      
+			      <span class="token attr-name">async
+			      </span>
+			      <span class="token punctuation">&gt;
+			      </span>
+			    </span>
+			    <span class="token script">
+			      <span class="token language-javascript">
+
+			      </span>
+			    </span>
+			    <span class="token tag">
+			      <span class="token tag">
+				<span class="token punctuation">&lt;/
+				</span>script
+			      </span>
+			      <span class="token punctuation">&gt;
+			      </span>
+			    </span>
+			  </code>
+			</pre>
+		      </div>
+
+		      <p>Phew! It’s done go and write your first comment. Also, just to let you know that as Utterances is based upon GitHub issues so it does support markdown natively which is a great plus if your audience is mostly web developers. Now that it’s done you can play with it or me and the Utterances community to make it better. Currently I am working on a way to cache GitHub API calls on client side so that I can reduce number of API lookups in case of multiple refreshes (If you refresh multiple time GitHub blocks API request for few minutes), I am trying to use service workers to solve this and if I am able to do so then I’ll surely update this article (In-case you feel you can help me the do let me know in the comment section or mail me).
+		      </p>
+
+		      <h3>Conclusion
+		      </h3>
+
+		      <p>Utterances is a great option for anyone whose audience comprises of mostly developers/coders. Using GitHub login makes it easier for all developers to comment and interact. Other features like reaction and markdown support comes handy too and make the system efficient.
+		      </p>
+
+		      <p>Please don’t test the comment system here, visit 
+			<a href="https://utteranc.es">utteranc.es↗
+			</a> to test.
+		      </p>
+
+		      <p>If you really liked the article then do share it with your friends and colleagues. If you find a error or just want to do addition to this post then feel free to drop a message on 
+			<a href="https://twitter.com/devxify">Twitter↗
+			</a>, also do follow us for quick updates. For weekly updates on web performance and optimization do subscribe to our newsletter. If you wish to support my work (which I do here for free) then you can do so by 
+			<a href="https://www.buymeacoffee.com/Devxify">buying me a coffee↗
+			</a> or two, I’ll be thankful.
+		      </p>
+
+		      <p style="text-align:center">
+
+			<a href="https://www.buymeacoffee.com/Devxify" rel="noreferrer nofollow" target="_blank">
+			  <img alt="buy me a coffee" src="https://devstorage.b-cdn.net/bmc.svg"/>
+			</a>
+
+		      </p>
+
+		      <!-- -->
+
+		      <script 
+			src="https://utteranc.es/client.js" 
+			data-repo="Devxify/Devxify-Talk" 
+			data-issue-term="title" 
+			data-label="comment" 
+			data-theme="github-light" 
+			crossorigin="anonymous" 
+			async="">
+
+		      </script>
+		    </div>
+		  </section>
+		  <style data-emotion-css="1izbodn">.css-1izbodn{margin:1.5em 0;padding:6.5vw 7vw 8vw;border:#e4eaed 1px solid;text-align:center;background:linear-gradient( #dedede,#f4f8fb);border-radius:3px;}.css-1izbodn p{margin-bottom:0.2em 0 1em;color:#738a94;font-size:2.1rem;line-height:1.55em;}@media (max-width:650px){.css-1izbodn p{font-size:1.6rem;}}.css-1izbodn .form-group{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;}@media (prefers-color-scheme:dark){.css-1izbodn{border:none;background:linear-gradient( #0b0c0e,#121417 );}.css-1izbodn p{color:rgba(255,255,255,0.7);}}
+		  </style>
+		  <section class="css-1izbodn e15zgaro0">
+		    <style data-emotion-css="1358apx">.css-1358apx{margin:0 0 3px 0;padding:0;color:#15171A;font-size:3.5rem;line-height:1;font-weight:600;}@media (max-width:650px){.css-1358apx{font-size:2.4rem;}}@media (prefers-color-scheme:dark){.css-1358apx{color:rgba(255,255,255,0.9);}}
+		    </style>
+		    <h3 class="css-1358apx">Subscribe to Devxify
+		    </h3>
+		    <p>Get the latest posts delivered right to your inbox
+		    </p>
+		    <form method="post" action="https://sendfox.com/form/1r84vv/1ylzgw" id="1ylzgw" data-async="true" target="_blank" class="css-1qgkh6">
+		      <div class="form-group css-1sqo1hg egytw1t2">
+			<input type="email" class="subscribe-email css-13qykxp egytw1t0" name="email" placeholder="Email" required=""/>
+		      </div>
+		      <div style="position:absolute;left:-5000px;display:none" aria-hidden="true">
+			<input type="text" name="a_password" tabindex="-1" value="" autoComplete="off"/>
+		      </div>
+		      <button type="submit" class="css-1hev7pv egytw1t1">
+			<span>Subscribe
+			</span>
+		      </button>
+		    </form>
+		  </section>
+		</article>
+	      </div>
+	    </main>
+	    <style data-emotion-css="qbc2zj">.css-qbc2zj{position:relative;padding:0 5vw;}
+	    </style>
+	    <style data-emotion-css="ok1tnz">.css-ok1tnz{background:#0a0b0c;position:relative;padding:0 5vw;}.css-ok1tnz .post-card{padding-bottom:0;border-bottom:none;}.css-ok1tnz .post-card:after{display:none;}.css-ok1tnz .post-card-primary-tag{color:#fff;opacity:0.6;}.css-ok1tnz .post-card-title{color:#fff;opacity:0.8;-webkit-transition:all 0.2s ease-in-out;transition:all 0.2s ease-in-out;}.css-ok1tnz .post-card:hover .post-card-image{opacity:1;}.css-ok1tnz .post-card-excerpt{color:rgba(255,255,255,0.6);}.css-ok1tnz .static-avatar{border-color:#000;}.css-ok1tnz .post-card-byline-content{color:rgba(255,255,255,0.6);}.css-ok1tnz .post-card-byline-content a{color:rgba(255,255,255,0.8);}.css-ok1tnz .author-avatar{border-color:#0a0b0c;}.css-ok1tnz .author-profile-image{background:#0a0b0c;}@media (max-width:650px){.css-ok1tnz .post-card{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;margin:25px;padding:25px 0 0;}}
+	    </style>
+	    <aside class="read-next css-ok1tnz eu5ixib0">
+	      <div class="css-s2cjas">
+		<style data-emotion-css="2wht8i">.css-2wht8i{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 -25px;padding:60px 0 0 0;}
+		</style>
+		<div class="read-next-feed css-2wht8i eu5ixib1">
+		  <style data-emotion-css="98jidn">.css-98jidn{position:relative;-webkit-flex:0 1 326px;-ms-flex:0 1 326px;flex:0 1 326px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;margin:0 25px 50px;padding:25px;background:linear-gradient( #1a1c20,#0a0b0c );border-radius:3px;}.css-98jidn a{-webkit-transition:all 0.2s ease-in-out;transition:all 0.2s ease-in-out;}.css-98jidn a:hover{-webkit-text-decoration:none;text-decoration:none;}@media (max-width:1170px){.css-98jidn{-webkit-flex:1 1 261px;-ms-flex:1 1 261px;flex:1 1 261px;margin-bottom:5vw;}}@media (max-width:650px){.css-98jidn{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;margin:0 25px;padding:0;background:none;}}
+		  </style>
+		  <article class="read-next-card css-98jidn em2u7rs0">
+		    <header class="read-next-card-header">
+		      <style data-emotion-css="107j7ox">.css-107j7ox{margin:0;color:rgba(255,255,255,0.6);font-size:1.2rem;line-height:1em;font-weight:300;-webkit-letter-spacing:0.4px;-moz-letter-spacing:0.4px;-ms-letter-spacing:0.4px;letter-spacing:0.4px;text-transform:uppercase;}.css-107j7ox a{color:#fff;font-weight:500;-webkit-text-decoration:none;text-decoration:none;opacity:0.8;}.css-107j7ox a:hover{opacity:1;}
+		      </style>
+		      <h3 class="css-107j7ox em2u7rs1">
+			<span>More in
+			</span> 
+			<a href="/tags/web/">WEB
+			</a>
+		      </h3>
+		    </header>
+		    <style data-emotion-css="1isanb0">.css-1isanb0{font-size:1.7rem;}.css-1isanb0 ul{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin:0;padding:0;list-style:none;}.css-1isanb0 li{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;margin:0;padding:20px 0;border-bottom:rgba(255,255,255,0.1);}.css-1isanb0 li:last-of-type{padding-bottom:5px;border:none;}.css-1isanb0 h4{margin:0;font-size:1.6rem;line-height:1.35em;font-weight:600;}.css-1isanb0 li a{display:block;color:#fff;opacity:0.8;}.css-1isanb0 li a:hover{opacity:1;}
+		    </style>
+		    <div class="read-next-card-content css-1isanb0 em2u7rs2">
+		      <ul>
+			<li>
+			  <h4>
+			    <a href="/bunnycdn-to-make-gastbyjs-faster/">Using BunnyCDN To Make Gatsby Faster
+			    </a>
+			  </h4>
+			  <style data-emotion-css="s786cg">.css-s786cg{margin-top:2px;font-size:1.2rem;line-height:1.4em;font-weight:400;}.css-s786cg p{margin:0;color:rgba(255,255,255,0.6);}
+			  </style>
+			  <div class="read-next-card-meta css-s786cg em2u7rs3">
+			    <p>
+			      <time dateTime="2020-08-05">05 Aug 2020
+			      </time> - 
+			      <!-- -->5
+			      <!-- --> min read
+			    </p>
+			  </div>
+			</li>
+			<li>
+			  <h4>
+			    <a href="/conversion-optimization-ux/">Proven Ways To Optimize Your Design For Better Conversion
+			    </a>
+			  </h4>
+			  <div class="read-next-card-meta css-s786cg em2u7rs3">
+			    <p>
+			      <time dateTime="2020-07-20">20 Jul 2020
+			      </time> - 
+			      <!-- -->6
+			      <!-- --> min read
+			    </p>
+			  </div>
+			</li>
+			<li>
+			  <h4>
+			    <a href="/poper-html-for-seo/">Proper Use Of HTML For SEO
+			    </a>
+			  </h4>
+			  <div class="read-next-card-meta css-s786cg em2u7rs3">
+			    <p>
+			      <time dateTime="2020-07-20">20 Jul 2020
+			      </time> - 
+			      <!-- -->7
+			      <!-- --> min read
+			    </p>
+			  </div>
+			</li>
+		      </ul>
+		    </div>
+		    <style data-emotion-css="7nqwv4">.css-7nqwv4{position:relative;margin:40px 0 5px;}.css-7nqwv4 a{padding:7px 12px 8px 14px;border:1px solid rgba(255,255,255,0.6);color:rgba(255,255,255,0.6);font-size:1.3rem;border-radius:999px;-webkit-transition:all 0.35s ease-in-out;transition:all 0.35s ease-in-out;}.css-7nqwv4 a:hover{border-color:#fecd35;color:#fecd35;-webkit-text-decoration:none;text-decoration:none;}
+		    </style>
+		    <footer class="read-next-card-footer css-7nqwv4 em2u7rs4">
+		      <a href="/tags/web/">See all 6 posts
+			<!-- --> →
+		      </a>
+		    </footer>
+		  </article>
+		  <style data-emotion-css="14stfiu">.css-14stfiu{position:relative;-webkit-flex:1 1 301px;-ms-flex:1 1 301px;flex:1 1 301px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;margin:0 0 40px;padding:0 20px 40px;min-height:220px;border-bottom:1px solid #eaeff1;background-size:cover;}@media (prefers-color-scheme:dark){.css-14stfiu{border-bottom-color:#2b2f36;}}
+		  </style>
+		  <article class="post-card   css-14stfiu">
+		    <style data-emotion-css="kufnxr">.css-kufnxr{position:relative;display:block;overflow:hidden;border-radius:5px 5px 0 0;}
+		    </style>
+		    <a class="post-card-image-link css-kufnxr" href="/conversion-optimization-ux/">
+		      <style data-emotion-css="8kte6t">.css-8kte6t{width:auto;height:200px;background:#c5d2d9 no-repeat center center;background-size:cover;}
+		      </style>
+		      <div class="post-card-image css-8kte6t e1qfhan10">
+			<div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;height:100%">
+			  <div aria-hidden="true" style="width:100%;padding-bottom:56.236559139784944%">
+			  </div>
+			  <img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB6ElEQVQoz3VSS0tbQRSemfuIaezC3hhtTHykCzVS0SRGmtQkmgqKilpMUWOhrd20C7sp7a7possi+D8stF25jSgIbvwNQQwJCArBGPXer3Nu0uwchuFwvse595zDmABXLE0zGcNs/9nv7H6fUZExVyAhxu0rAwan+9qfKBGkWpShpM3gnGDDVUsFSg7dtB0hVGgOOF145CZUf3jXky4SWWmKGbp9pXj0RAZCWPK1A3qDQXz4iMATNKGO0Hln5Jw4djESO/RKu3FGDNXSdKt/AOExjIYRi2PpJcIRDAQxNo6nw+AC3ljZlyg98FSdxjUbHMLGaywuw9NJZi1OTCSxuo43b5GawuZ7zMxiJYO1LBaXIBTitHZdeZ+Vu2JlVqmgfopFTKXh9+PdpmRbKxlTms4vUPG5BVKuZ9EXIDFvfDNYrYbdX8jnSX96ikgUwSG4PfD1UDwSwmgI/m4MjyAURrvnljGLKeCaRT3/8pU8VA1//pL+0xbsFhZfxPOc3zUqyHZwatjz6LFhXFDxercTyQb8LUfi7zki/cxtFw7TM6kD8tXN+thkQUfLjaLSRrS5arQae3voDSA5iUKBxJlXJJ5OHP34vON9bK9Ec6ri/8II6JopZF4KqlXIP5fn8rKxD9yec5N63/0H3tYmLWBH0fkAAAAASUVORK5CYII=" alt="Proven Ways To Optimize Your Design For Better Conversion cover image" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/>
+			  <noscript>
+			    <picture>
+			      <source srcset="https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/c5c6c/ux.png 930w,
+					      https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/fe828/ux.png 1860w,
+					      https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/eeb1b/ux.png 1920w" sizes="(max-width: 1920px) 100vw, 1920px" />
+			      <img loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/c5c6c/ux.png 930w,
+												    https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/fe828/ux.png 1860w,
+												    https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/eeb1b/ux.png 1920w" src="https://www.devxify.com/static/076b6a605bb0937e1948368e7977fc8d/eeb1b/ux.png" alt="Proven Ways To Optimize Your Design For Better Conversion cover image" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+			    </picture>
+			  </noscript>
+			</div>
+		      </div>
+		    </a>
+		    <style data-emotion-css="2u1lp9">.css-2u1lp9{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+		    </style>
+		    <div class="post-card-content css-2u1lp9 e1qfhan11">
+		      <style data-emotion-css="1fjrpmt">.css-1fjrpmt{position:relative;display:block;color:#15171A;}.css-1fjrpmt:hover{-webkit-text-decoration:none;text-decoration:none;}
+		      </style>
+		      <a class="post-card-content-link css-1fjrpmt" href="/conversion-optimization-ux/">
+			<style data-emotion-css="9htq4g">.css-9htq4g{margin:15px 0 0;}
+			</style>
+			<header class="post-card-header css-9htq4g e1qfhan17">
+			  <style data-emotion-css="10h5o9n">.css-10h5o9n{margin:0 0 0.2em;color:#1a62f2;font-size:1.2rem;font-weight:500;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;text-transform:uppercase;}
+			  </style>
+			  <div class="post-card-primary-tag css-10h5o9n e1qfhan12">WEB
+			  </div>
+			  <style data-emotion-css="9rk8pj">.css-9rk8pj{margin:0 0 0.4em;line-height:1.15em;-webkit-transition:color 0.2s ease-in-out;transition:color 0.2s ease-in-out;}@media (prefers-color-scheme:dark){.css-9rk8pj{color:rgba(255,255,255,0.85);}}
+			  </style>
+			  <h2 class="post-card-title css-9rk8pj e1qfhan13">Proven Ways To Optimize Your Design For Better Conversion
+			  </h2>
+			</header>
+			<style data-emotion-css="q7i41x">.css-q7i41x{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;}@media (prefers-color-scheme:dark){.css-q7i41x{color:#90a2aa !important;}}
+			</style>
+			<section class="post-card-excerpt css-q7i41x e1qfhan14">
+			  <p>The web has evolved so is the competition. In present days you have few seconds to engage you visitor otherwise it&#x27;s a lost business. Learn to ace it.
+			  </p>
+			</section>
+		      </a>
+		      <style data-emotion-css="al5rng">.css-al5rng{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;padding:0;}
+		      </style>
+		      <footer class="post-card-meta css-al5rng e1qfhan15">
+			<ul class="author-list css-4yy0qg e1vx1kx20">
+			  <li class="author-list-item css-rzestn e1jay2160">
+			    <style data-emotion-css="182sw62">.css-182sw62{position:absolute;bottom:105%;z-index:999;display:block;padding:2px 8px;color:white;font-size:1.2rem;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;white-space:nowrap;background:#15171A;border-radius:3px;box-shadow:rgba(39,44,49,0.08) 0 12px 26px,rgba(39,44,49,0.03) 1px 3px 8px;opacity:0;-webkit-transition:all 0.35s cubic-bezier(0.4,0.01,0.165,0.99);transition:all 0.35s cubic-bezier(0.4,0.01,0.165,0.99);-webkit-transform:translateY(6px);-ms-transform:translateY(6px);transform:translateY(6px);pointer-events:none;}@media (max-width:700px){.css-182sw62{display:none;}}
+			    </style>
+			    <div class="author-name-tooltip css-182sw62 e1jay2161">Ankit
+			    </div>
+			    <a class="author-avatar css-1t8vvv8" href="/author/ankit/">
+			      <div class="author-profile-image css-1k9giva gatsby-image-wrapper" style="position:relative;overflow:hidden">
+				<div aria-hidden="true" style="width:100%;padding-bottom:100%">
+				</div>
+				<img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQCAQMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAAHOPWni4SAbuo2lQF//xAAcEAACAgIDAAAAAAAAAAAAAAACEQEDABMEEiL/2gAIAQEAAQUCMC3D5uK0XbrkkDluwXnEntXn/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/AYE//8QAFxEAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPwHSv//EAB0QAAIBBAMAAAAAAAAAAAAAAAABMQIRQVESIYH/2gAIAQEABj8CruO+uiG/RZYklxqk0PFh1uSEf//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExURBB/9oACAEBAAE/IaDbeFbqflv4kUjq4GLeGHbiKKw8uCu4UmIxqZlJVF9z/9oADAMBAAIAAwAAABDAMD//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAwEBPxANK66Qn//EABkRAAMAAwAAAAAAAAAAAAAAAAABERAhMf/aAAgBAgEBPxBupjFpj6f/xAAcEAEBAAMAAwEAAAAAAAAAAAABEQAhMUFhkVH/2gAIAQEAAT8QQWkKCVRLpw5atUg8S+MSE1DdE9aMUO6z1ObzSzHRHoplHmCgz6Y3VLzm49/eZaQ9SAB4+4IAhVGf/9k=" alt="Ankit" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1"/>
+				<noscript>
+				  <picture>
+				    <source srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/fd013/ankit.jpg 200w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" sizes="(max-width: 400px) 100vw, 400px" />
+				    <img loading="lazy" sizes="(max-width: 400px) 100vw, 400px" srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/fd013/ankit.jpg 200w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" src="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg" alt="Ankit" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+				  </picture>
+				</noscript>
+			      </div>
+			    </a>
+			  </li>
+			</ul>
+			<style data-emotion-css="13da78j">.css-13da78j{-webkit-flex:1 1 50%;-ms-flex:1 1 50%;flex:1 1 50%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin:4px 0 0 10px;color:#90a2aa;font-size:1.2rem;line-height:1.4em;font-weight:400;-webkit-letter-spacing:0.2px;-moz-letter-spacing:0.2px;-ms-letter-spacing:0.2px;letter-spacing:0.2px;text-transform:uppercase;}.css-13da78j span{margin:0;}.css-13da78j a{color:#434952;font-weight:600;}@media (prefers-color-scheme:dark){.css-13da78j a{color:rgba(255,255,255,0.75);}}
+			</style>
+			<div class="post-card-byline-content css-13da78j e1qfhan16">
+			  <span>
+			    <a href="/author/ankit/">Ankit
+			    </a>
+			  </span>
+			  <span class="post-card-byline-date">
+			    <time dateTime="2020-07-20">20 Jul 2020
+			    </time> 
+			    <span class="bull">•
+			    </span> 
+			    <!-- -->6
+			    <!-- --> min read
+			  </span>
+			</div>
+		      </footer>
+		    </div>
+		  </article>
+		  <article class="post-card   css-14stfiu">
+		    <a class="post-card-image-link css-kufnxr" href="/privacy-friendly-analytics-comparison/">
+		      <div class="post-card-image css-8kte6t e1qfhan10">
+			<div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;height:100%">
+			  <div aria-hidden="true" style="width:100%;padding-bottom:56.236559139784944%">
+			  </div>
+			  <img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABUElEQVQoz5WRzUsCQRjG53/q2D8QRHTJtBLpYJeCLuE1iBAqCArCQy1knyAZggQRXvSUfVgWdYkoFA0ktdXW2Z11Zp52dRGiDuswh/d93vm9z8w7JMmVLXo8r8anqqm52mOeaQAkXC2yz6JLWuyA5gtcE3/KUv6KhZCO0knIBj3Mmq8dN1t36ek4R2mqa2hjWguFcs+xqcrrjEmp01BtmrFkqVhq2fViBetxkjByDln8wHkal3cM+KrVLOEhz8JrVcHRaDQE1++f1MGR9Fm6jnqFj4cwECAJ/dk6J3jbwpC5wsubdRGmG5ZoQlSh24HZtvoXSjR7+8mtPKJgeAK+WVLm346zlM7+b1ro/UGbYWURQT9mgqSfAUEaOsrvUJax4EVouj8YnOHmFJsBrE4i7HcNd9+Q24YyhF0PdryI+FzCHZIbuAggMYoTD47GsOf5ATMfYZvThWBxAAAAAElFTkSuQmCC" alt="War Of Privacy Friendly Analytics cover image" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/>
+			  <noscript>
+			    <picture>
+			      <source srcset="https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/c5c6c/privacy-analytics.png 930w,
+					      https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/fe828/privacy-analytics.png 1860w,
+					      https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/eeb1b/privacy-analytics.png 1920w" sizes="(max-width: 1920px) 100vw, 1920px" />
+			      <img loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/c5c6c/privacy-analytics.png 930w,
+												    https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/fe828/privacy-analytics.png 1860w,
+												    https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/eeb1b/privacy-analytics.png 1920w" src="https://www.devxify.com/static/636face72a445a19c8cfe1df46594c7e/eeb1b/privacy-analytics.png" alt="War Of Privacy Friendly Analytics cover image" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+			    </picture>
+			  </noscript>
+			</div>
+		      </div>
+		    </a>
+		    <div class="post-card-content css-2u1lp9 e1qfhan11">
+		      <a class="post-card-content-link css-1fjrpmt" href="/privacy-friendly-analytics-comparison/">
+			<header class="post-card-header css-9htq4g e1qfhan17">
+			  <div class="post-card-primary-tag css-10h5o9n e1qfhan12">Product
+			  </div>
+			  <h2 class="post-card-title css-9rk8pj e1qfhan13">War Of Privacy Friendly Analytics
+			  </h2>
+			</header>
+			<section class="post-card-excerpt css-q7i41x e1qfhan14">
+			  <p>Privacy friendly analytics are new hot products. See the comparison of Simple Analytics, UseFathom and Plausible. I&#x27;m pretty sure, you&#x27;ll know which one to pick after this.
+			  </p>
+			</section>
+		      </a>
+		      <footer class="post-card-meta css-al5rng e1qfhan15">
+			<ul class="author-list css-4yy0qg e1vx1kx20">
+			  <li class="author-list-item css-rzestn e1jay2160">
+			    <div class="author-name-tooltip css-182sw62 e1jay2161">Ankit
+			    </div>
+			    <a class="author-avatar css-1t8vvv8" href="/author/ankit/">
+			      <div class="author-profile-image css-1k9giva gatsby-image-wrapper" style="position:relative;overflow:hidden">
+				<div aria-hidden="true" style="width:100%;padding-bottom:100%">
+				</div>
+				<img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQCAQMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAAHOPWni4SAbuo2lQF//xAAcEAACAgIDAAAAAAAAAAAAAAACEQEDABMEEiL/2gAIAQEAAQUCMC3D5uK0XbrkkDluwXnEntXn/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/AYE//8QAFxEAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPwHSv//EAB0QAAIBBAMAAAAAAAAAAAAAAAABMQIRQVESIYH/2gAIAQEABj8CruO+uiG/RZYklxqk0PFh1uSEf//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExURBB/9oACAEBAAE/IaDbeFbqflv4kUjq4GLeGHbiKKw8uCu4UmIxqZlJVF9z/9oADAMBAAIAAwAAABDAMD//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAwEBPxANK66Qn//EABkRAAMAAwAAAAAAAAAAAAAAAAABERAhMf/aAAgBAgEBPxBupjFpj6f/xAAcEAEBAAMAAwEAAAAAAAAAAAABEQAhMUFhkVH/2gAIAQEAAT8QQWkKCVRLpw5atUg8S+MSE1DdE9aMUO6z1ObzSzHRHoplHmCgz6Y3VLzm49/eZaQ9SAB4+4IAhVGf/9k=" alt="Ankit" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1"/>
+				<noscript>
+				  <picture>
+				    <source srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/fd013/ankit.jpg 200w,
+						    https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" sizes="(max-width: 400px) 100vw, 400px" />
+				    <img loading="lazy" sizes="(max-width: 400px) 100vw, 400px" srcset="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/fd013/ankit.jpg 200w,
+													https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg 400w" src="https://www.devxify.com/static/98ded2ef2cfe761fe8ab6c50ca2c3abe/25252/ankit.jpg" alt="Ankit" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/>
+				  </picture>
+				</noscript>
+			      </div>
+			    </a>
+			  </li>
+			</ul>
+			<div class="post-card-byline-content css-13da78j e1qfhan16">
+			  <span>
+			    <a href="/author/ankit/">Ankit
+			    </a>
+			  </span>
+			  <span class="post-card-byline-date">
+			    <time dateTime="2020-07-27">27 Jul 2020
+			    </time> 
+			    <span class="bull">•
+			    </span> 
+			    <!-- -->9
+			    <!-- --> min read
+			  </span>
+			</div>
+		      </footer>
+		    </div>
+		  </article>
+		</div>
+	      </div>
+	    </aside>
+	    <style data-emotion-css="1r6rbav">.css-1r6rbav{position:relative;padding:0 5vw;position:relative;padding-top:20px;padding-bottom:60px;color:#fff;background:#000;}
+	    </style>
+	    <footer class="css-1r6rbav">
+	      <style data-emotion-css="t78pr">.css-t78pr{margin:0 auto;max-width:1040px;width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(255,255,255,0.7);font-size:1.3rem;}.css-t78pr a{color:rgba(255,255,255,0.7);}.css-t78pr a:hover{color:rgba(255,255,255,1);-webkit-text-decoration:none;text-decoration:none;}@media (max-width:650px){.css-t78pr{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}
+	      </style>
+	      <div class="css-t78pr">
+		<section class="copyright">
+		  <a href="/">© Devxify
+		  </a> 
+		  <!-- -->2020
+		  <!-- --> | 
+		  <a href="javascript:location=&#x27;mailto:\u0068\u0069\u0040\u0064\u0065\u0076\u0078\u0069\u0066\u0079\u002e\u0063\u006f\u006d&#x27;;void 0">Want to talk? Mail us.
+		  </a>
+		</section>
+		<style data-emotion-css="gzvysf">.css-gzvysf{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-gzvysf a{position:relative;margin-left:20px;}.css-gzvysf a:before{content:'';position:absolute;top:11px;left:-11px;display:block;width:2px;height:2px;background:#fff;border-radius:100%;}.css-gzvysf a:first-of-type:before{display:none;}@media (max-width:650px){.css-gzvysf a:first-of-type{margin-left:0;}}
+		</style>
+		<nav class="css-gzvysf e1me3zb40">
+		  <a href="https://t.me/devxify" target="_blank" rel="noopener noreferrer">Telegram
+		  </a>
+		  <a href="https://twitter.com/devxify" target="_blank" rel="noopener noreferrer">Twitter
+		  </a>
+		  <a href="https://sendfox.com/Devxify" target="_blank" rel="noopener noreferrer">Subscribe
+		  </a>
+		  <a href="/rss.xml">RSS
+		  </a>
+		</nav>
+	      </div>
+	    </footer>
+	  </div>
+	</div>
+      </div>
+      <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true">
+      </div>
+    </div>
+    <script id="gatsby-script-loader">/*
+  <![CDATA[*/window.pagePath="/comments-on-static-website/";/*]]>*/
+    </script>
+    <script id="gatsby-chunk-mapping">/*
+  <![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-5ae85f969a2bdc266058.js"],"app":["/app-5cc52c1278990c2a3b2f.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-bbef9e0e42b199e89b34.js"],"component---src-pages-about-tsx":["/component---src-pages-about-tsx-af4a0d21a98f406b97bf.js"],"component---src-templates-author-tsx":["/component---src-templates-author-tsx-edfa46515ef762b91d9a.js"],"component---src-templates-index-tsx":["/component---src-templates-index-tsx-c832567a1d76397e50e1.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-ee386da55b76cab07054.js"],"component---src-templates-tags-tsx":["/component---src-templates-tags-tsx-3b8b3ba4429da8ec4b54.js"]};/*]]>*/
+    </script>
+    <script src="https://www.devxify.com/polyfill-5ae85f969a2bdc266058.js" nomodule="">
+    </script>
+    <script src="https://www.devxify.com/component---src-templates-post-tsx-ee386da55b76cab07054.js" async="">
+    </script>
+    <script src="https://www.devxify.com/commons-6b74b886a7827518548f.js" async="">
+    </script>
+    <script src="https://www.devxify.com/29107295-417d3ecd33043b3d0de6.js" async="">
+    </script>
+    <script src="https://www.devxify.com/app-5cc52c1278990c2a3b2f.js" async="">
+    </script>
+    <script src="https://www.devxify.com/framework-3e2e69bc9c13563e38ba.js" async="">
+    </script>
+    <script src="https://www.devxify.com/webpack-runtime-920f147d68c2e5c0d1ec.js" async="">
+    </script>
+    <script async defer data-skip-dnt="true" src="https://simple.devxify.com/latest.js">
+    </script>
+
+    <noscript>
+      <img src="https://simple.devxify.com/noscript.gif" alt="">
+    </noscript>
+  </body>
+</html>

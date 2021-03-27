@@ -1,0 +1,13 @@
+* blogs that use utterances
+  https://samtay.github.io/posts/first-foray-into-rust
+* snippet
+replace </body>
+with
+<script src="https://utteranc.es/client.js"
+        repo="guitarvydas/guitarvydas.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
